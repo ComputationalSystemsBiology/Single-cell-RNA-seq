@@ -1,0 +1,23 @@
+<tool id="saturation" name="MAD_filtering" >
+	<description> Perform quality checking and filtering on raw count data from single cell RNA-Seq experiment using MAD value</description>
+	<command interpreter="docker"  dockerimage="genomicpariscentre/scqualitychecking:1.0">Rscript /scripts/qualityCheckingMAD.R $input1 $input2 $input3 $detection_threshold $expression_option $saturation_threshold $norm_threshold  $prop_mt $prop_sp $nb_filters $output1 $output2 $output3</command>
+	<inputs>
+		<param format="expression_matrix_tsv" name="matrix" type="data" label="Source file" />
+		<param format="initial_cells_metadata_tsv" name="cells" type="data" label="Source file" />
+		<param format="genes_metadata_tsv" name="cells" type="data" label="Source file" />
+		
+		<param name="detection_threshold" type="integer" value="10" label="Gene detection threshold"/>
+		<param name="expression_option" type="text" value="Endogenous" label="Type of detected genes"/>
+		<param name="n_Mad" type="int" value="5" label="Maximum number of median absolute deviation"/>
+		<param name="direction" type="text" value="both" label="filtering direction : both, upper or lower"/>
+		<param name="groups" type="text" value="Null" label="Column for grouping cell"/>
+		<param name="prop_mt" type="float" value="0.1" max="1" label="Maximum proportion of mitochondrially aligned reads"/>
+		<param name="prop_sp" type="float" value="0.5" max="1" label="Maximum proportion of exogenously aligned reads"/>
+		<param name="nb_filters" type="integer" value="1" min="1" max="4" label="Parameter for number of failed filters triggering removal"/>
+	</inputs>
+	<outputs>
+		<data format="initial_cells_metadata_tsv" name="completecellsoutput" />
+		<data format="filtered_expression_matrix_tsv" name="matrixoutput" />
+		<data format="filtered_cells_metadata_tsv" name="cellsoutput" />
+	</outputs>
+</tool>

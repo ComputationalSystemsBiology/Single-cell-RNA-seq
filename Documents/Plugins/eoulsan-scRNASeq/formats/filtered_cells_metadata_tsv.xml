@@ -1,0 +1,13 @@
+<dataformat>
+  <name>filtered_cells_metadata_tsv</name>
+  <description>tsv filtered cells metadata format</description>
+  <prefix>FilCellsMetadata</prefix>
+  <extensions>
+  	<extension default="true">.tsv</extension>
+  	<extension>.txt</extension>
+  </extensions>
+  <toolshedgalaxy>
+        <extension>cellsFiltered</extension>   
+  </toolshedgalaxy>
+</dataformat>
+

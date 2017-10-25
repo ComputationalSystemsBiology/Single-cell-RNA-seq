@@ -1,0 +1,13 @@
+<dataformat>
+  <name>filtered_expression_matrix_tsv</name>
+  <description>tsv filtered expression matrix format</description>
+  <prefix>FilExpressionMatrix</prefix>
+  <extensions>
+  	<extension default="true">.tsv</extension>
+  	<extension>.txt</extension>
+  </extensions>
+  <toolshedgalaxy>
+        <extension>matrixFiltered</extension>   
+   </toolshedgalaxy>
+</dataformat>
+

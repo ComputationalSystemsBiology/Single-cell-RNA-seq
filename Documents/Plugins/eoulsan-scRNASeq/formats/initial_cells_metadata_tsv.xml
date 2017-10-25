@@ -1,0 +1,12 @@
+<dataformat>
+    <name>initial_cells_metadata_tsv</name>
+    <description>tsv initial cells metadata format</description>
+    <prefix>CellsMetadataIni</prefix>
+    <extensions>
+        <extension default="true">.tsv</extension>
+        <extension>.txt</extension>
+    </extensions>
+    <toolshedgalaxy>
+        <extension>cellsIni</extension>   
+    </toolshedgalaxy>
+</dataformat>

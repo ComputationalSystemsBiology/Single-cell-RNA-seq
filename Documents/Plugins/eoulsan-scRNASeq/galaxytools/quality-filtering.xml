@@ -1,0 +1,24 @@
+<tool id="scqualitychecking" name="scqualitychecking01" >
+	<description> Perform quality checking and filtering on raw count data from single cell RNA-Seq experiment</description>
+	<command interpreter="docker"  dockerimage="genomicpariscentre/scqualitychecking:0.1">Rscript scripts/SCQualityChecking.R $input1 $input2 $input3 $plot_option $detection_threshold $expression_threshold $expression_option $reads_threshold $reads_option $prop_mt $prop_sp $nb_filters $output1 $output2 $output3</command>
+	<inputs>
+		<param format="expression_matrix_tsv" name="matrix" type="data" label="Source file" />
+		<param format="initial_cells_metadata_tsv" name="cells" type="data" label="Source file" />
+		<param format="genes_metadata_tsv" name="genes" type="data" label="Source file" />
+		
+		<param name="plot_option" type="text" value="All" label="Plotting parameter"/>
+		<param name="detection_threshold" type="integer" value="10" label="Gene detection threshold"/>
+		<param name="expression_threshold" type="integer" value="4000" label="Minimum number of detected genes"/>
+		<param name="expression_option" type="text" value="Endogenous" label="Type of detected genes"/>
+		<param name="reads_threshold" type="integer" value="200000" label="Minimum number of reads"/>
+		<param name="reads_option" type="text" value="Endogenous" label="Type of aligned reads"/>
+		<param name="prop_mt" type="float" value="0.1" label="Maximum proportion of mitochondrially aligned reads"/>
+		<param name="prop_sp" type="float" value="0.5" label="Maximum proportion of exogenously aligned reads"/>
+		<param name="nb_filters" type="integer" value="1" min="1" max="4" label="Parameter for number of failed filters triggering removal"/>
+	</inputs>
+	<outputs>
+		<data format="initial_cells_metadata_tsv" name="completcellsoutput" />
+		<data format="filtered_expression_matrix_tsv" name="matrixoutput" />
+		<data format="filtered_cells_metadata_tsv" name="cellsoutput" />
+	</outputs>
+</tool>

@@ -1,0 +1,12 @@
+<dataformat>
+    <name>diffexp_result_tsv</name>
+    <description>DGE result tsv format</description>
+    <prefix>dgeResult</prefix>
+    <extensions>
+        <extension default="true">.tsv</extension>
+        <extension>.txt</extension>
+    </extensions>
+    <toolshedgalaxy>
+        <extension>DGERes</extension>   
+    </toolshedgalaxy>
+</dataformat>

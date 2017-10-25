@@ -1,0 +1,6 @@
+scDifferentialExpression/AbstractSCDifferentialExpression.class
+scDifferentialExpression/SCDEModule.class
+preprocessing/SCFeatureMetadata.class
+preprocessing/MatrixCreatorModule.class
+preprocessing/FeaturesMetadataExtractorModule.class
+preprocessing/CellDataExtractorModule.class
