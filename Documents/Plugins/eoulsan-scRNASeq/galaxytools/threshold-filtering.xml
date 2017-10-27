@@ -1,4 +1,4 @@
-<tool id="saturation" name="threshold_filtering" >
+<tool id="saturation" name="threshold-filtering" >
 	<description> Perform quality checking and filtering on raw count data from single cell RNA-Seq experiment using threshold</description>
 	<command interpreter="docker"  dockerimage="genomicpariscentre/scqualitychecking:1.0">Rscript /scripts/qualityCheckingThresholds.R $input1 $input2 $input3 $detection_threshold $expression_option $expression_threshold $reads_threshold $prop_mt $prop_sp $nb_filters $output1 $output2 $output3</command>
 	<inputs>
