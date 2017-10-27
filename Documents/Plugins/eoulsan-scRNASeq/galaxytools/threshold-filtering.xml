@@ -4,7 +4,7 @@
 	<inputs>
 		<param format="expression_matrix_tsv" name="matrix" type="data" label="Source file" />
 		<param format="initial_cells_metadata_tsv" name="cells" type="data" label="Source file" />
-		<param format="genes_metadata_tsv" name="cells" type="data" label="Source file" />
+		<param format="genes_metadata_tsv" name="genes" type="data" label="Source file" />
 		
 		<param name="detection_threshold" type="integer" value="10" label="Gene detection threshold"/>
 		<param name="expression_option" type="text" value="Endogenous" label="Type of detected genes"/>
