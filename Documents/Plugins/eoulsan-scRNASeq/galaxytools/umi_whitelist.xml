@@ -1,0 +1,11 @@
+<tool id="umi_whitelist" name="umi_whitelist">
+	<description>Identify correct cell barcodes</description>
+	<command interpreter="docker" dockerimage="genomicpariscentre/umi-tools:0.5.1">bash -c "umi_tools whitelist --stdin \$(echo $input | sed 's/R2/R1/g') --bc-pattern=CCCCCCCCCCCCCCCCNNNNNNNNNN --log2stderr > $output 2> ${output}.err"</command>
+	<inputs>
+		<param format="fastq" name="input" type="data" label="Source file"/>	
+		<!--param name="R1" type="text" label="Barcodes and umi fastq"/-->
+	</inputs>
+	<outputs>
+		<data format="whitelist_umi" name="output"/>
+	</outputs>
+</tool>
