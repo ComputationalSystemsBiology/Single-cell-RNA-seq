@@ -5,6 +5,7 @@
     <extensions>
         <extension default="true">.tsv</extension>
         <extension>.txt</extension>
+	<extension>.tsv.gz</extension>
     </extensions>
     <toolshedgalaxy>
         <extension>matrixIni</extension>   
