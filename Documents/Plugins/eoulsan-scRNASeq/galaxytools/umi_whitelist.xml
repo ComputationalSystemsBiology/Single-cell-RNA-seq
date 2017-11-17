@@ -1,8 +1,11 @@
-<tool id="umi_whitelist" name="umi_whitelist">
-	<description>Identify correct cell barcodes</description>
-	<command interpreter="docker" dockerimage="genomicpariscentre/umi-tools:0.5.1">bash -c "umi_tools whitelist --stdin \$(echo $input | sed 's/R2/R1/g') --bc-pattern=CCCCCCCCCCCCCCCCNNNNNNNNNN --log2stderr > $output 2> ${output}.err"</command>
+<tool id="umi_whitelist_dev" name="umi_whitelist_dev">
+	<description>Identify correct cell barcodes - more info : "umi_tools whitelist -help"</description>
+	<command interpreter="docker" dockerimage="genomicpariscentre/umi-tools:0.5.1">bash -c "umi_tools whitelist --stdin \$(echo $input | sed 's/R2/R1/g') --bc-pattern=${bc_pattern} --plot-prefix=plot --set-cell-number=${set_cell_number} --expect-cells=${expect_cells}  --log2stderr > $output 2> ${output}.err"</command>
 	<inputs>
-		<param format="fastq" name="input" type="data" label="Source file"/>	
+		<param format="fastq" name="input" type="data" label="Source file"/>
+		<param name="bc_pattern" type="text" value="CCCCCCCCCCCCCCCCNNNNNNNNNN" label="Barcode pattern (identifies bases position) - N = UMI position (required) ; C = cell barcode position (optional) ; X = sample position (optional)"/>
+		<param name="set_cell_number" type="integer" value="0" label="Explicity set the number of cell barcodes which should be accepted - Usage : --set-cell-number=1000 - Default value 0 means no set cell number"/>
+		<param name="expect_cells" type="integer" value="0" label="Upper limit estimate for the number of inputted cells - Usage : --expect-cells=1000 - Default value : 0 means no expected cells number"/> 
 		<!--param name="R1" type="text" label="Barcodes and umi fastq"/-->
 	</inputs>
 	<outputs>
