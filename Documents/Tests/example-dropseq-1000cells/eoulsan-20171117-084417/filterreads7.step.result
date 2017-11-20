@@ -1,0 +1,45 @@
+
+{
+    "Job id":"eoulsan-20171117-084417",
+    "Job UUID":"9c2768f3-eb2f-42c2-9b98-82feab33c9ab",
+    "Job description":"no job description",
+    "Job environment":"Local Mode on Intel(R) Xeon(R) CPU E5-2650 v2 @ 2.60GHz, 16 CPU(s)/thread(s), 65921460 kB",
+    "Step id":"filterreads7",
+    "Step name":"filterreads",
+    "Step class":"fr.ens.biologie.genomique.eoulsan.modules.mapping.local.ReadsFilterLocalModule",
+    "Step version":"2.0",
+    "Start time":"November 17, 2017 10:21:33 AM CET",
+    "End time":"November 17, 2017 10:30:29 AM CET",
+    "Duration":"00:08:55.574",
+    "Duration in milliseconds":535574,
+    "Success":true,
+    "Step message":"",
+    "Step parameters":{
+        "trim.length.threshold":"11",
+        "quality.threshold":"12"
+    },
+    "Counters":{
+        "T3R2":{
+            "input raw reads":47882640,
+            "output accepted reads":47869718,
+            "reads rejected by filters":12922,
+            "reads rejected by trim filter":9625,
+            "reads rejected by quality filter":3297
+        }
+    },
+    "Tasks":[
+        {
+            "Task id":9,
+            "Task name":"T3R2",
+            "Task description":"Filter reads (T3R2, umistepextract7_output_reads_T3R2_file0.fq)",
+            "Task message":"",
+            "Task counters":{
+                "input raw reads":47882640,
+                "output accepted reads":47869718,
+                "reads rejected by filters":12922,
+                "reads rejected by trim filter":9625,
+                "reads rejected by quality filter":3297
+            }
+        }
+    ]
+}

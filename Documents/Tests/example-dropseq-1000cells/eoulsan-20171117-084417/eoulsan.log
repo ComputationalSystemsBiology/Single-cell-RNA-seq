@@ -1,0 +1,114 @@
+INFO	2017.11.17 08:44:16	Welcome to Eoulsan version 2.0 (v2.0-0-g8f7c6dd, build0 build on 21d69ade4b4e, 2017-11-06 09:27:50 UTC)
+INFO	2017.11.17 08:44:16	Start in local mode
+INFO	2017.11.17 08:44:16	Eoulsan version: 2.0
+INFO	2017.11.17 08:44:16	Eoulsan revision: v2.0-0-g8f7c6dd
+INFO	2017.11.17 08:44:16	Eoulsan build date: 2017-11-06 09:27:50 UTC
+INFO	2017.11.17 08:44:16	Eoulsan Startup script: /users/csb/lehmann/Eoulsan/eoulsan/eoulsan.sh
+INFO	2017.11.17 08:44:16	Eoulsan Command line arguments: -conf eoulsan_conf exec workflow-4steps-7TP.xml design.txt
+INFO	2017.11.17 08:44:16	Log file: (none)
+INFO	2017.11.17 08:44:16	Log level: ALL
+INFO	2017.11.17 08:44:16	System temp directory: /tmp
+INFO	2017.11.17 08:44:16	Load configuration file: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3/eoulsan_conf
+INFO	2017.11.17 08:44:16	Setting: main.local.threads=10
+INFO	2017.11.17 08:44:16	Setting: main.docker.uri=unix:////var/run/docker.sock
+INFO	2017.11.17 08:44:16	Setting: main.tmp.dir=/scratch
+INFO	2017.11.17 08:44:16	Setting: main.genome.mapper.index.storage.path=/import/kg_csbgn01/genomes/eoulsan/genome_indexes
+INFO	2017.11.17 08:44:16	Setting: main.genome.storage.path=/import/kg_csbgn01/genomes/eoulsan/genomes
+INFO	2017.11.17 08:44:16	Setting: main.gff.storage.path=/import/kg_csbgn01/genomes/eoulsan/genome_annotations
+INFO	2017.11.17 08:44:16	Setting: main.genome.desc.storage.path=/import/kg_csbgn01/genomes/eoulsan/genome_descriptions
+INFO	2017.11.17 08:44:16	Setting: main.galaxy.tool.path=/kingdoms/csb/workspace3/lehmann/Eoulsan/galaxy/galaxytools
+INFO	2017.11.17 08:44:16	Setting: main.format.path=/kingdoms/csb/workspace3/lehmann/Eoulsan/galaxy/formats
+INFO	2017.11.17 08:44:16	Host: csbpc12
+INFO	2017.11.17 08:44:16	Operating system name: Linux
+INFO	2017.11.17 08:44:16	Operating system version: 3.13.0-77-generic
+INFO	2017.11.17 08:44:16	Operating system arch: amd64
+INFO	2017.11.17 08:44:16	User name: lehmann
+INFO	2017.11.17 08:44:16	User home: /users/csb/lehmann
+INFO	2017.11.17 08:44:16	User current directory: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3
+INFO	2017.11.17 08:44:16	Java vendor: Oracle Corporation
+INFO	2017.11.17 08:44:16	Java vm name: OpenJDK 64-Bit Server VM
+INFO	2017.11.17 08:44:16	Java version: 1.7.0_95
+INFO	2017.11.17 08:44:17	Start exec action
+INFO	2017.11.17 08:44:17	Workflow file: workflow-4steps-7TP.xml
+INFO	2017.11.17 08:44:17	Design file: design.txt
+INFO	2017.11.17 08:44:17	Read design file
+INFO	2017.11.17 08:44:18	Start parsing the workflow workflow file
+INFO	2017.11.17 08:44:18	In workflow file found umi_whitelist_dev step (parameters: []).
+INFO	2017.11.17 08:44:18	In workflow file found umi_extract step (parameters: []).
+INFO	2017.11.17 08:44:18	In workflow file found filterreads step (parameters: [trim.length.threshold=11, quality.threshold=12]).
+INFO	2017.11.17 08:44:18	In workflow file found mapreads step (parameters: [mapper=star]).
+INFO	2017.11.17 08:44:18	In workflow file found filtersam step (parameters: [removeunmapped=, removemultimatches=]).
+INFO	2017.11.17 08:44:18	In workflow file found umi_count step (parameters: []).
+INFO	2017.11.17 08:44:18	End of parsing of workflow file
+INFO	2017.11.17 08:44:18	Found 6 step(s) in workflow file
+INFO	2017.11.17 08:44:18	Design file path: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3/design.txt
+INFO	2017.11.17 08:44:18	Workflow file path: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3/workflow-4steps-7TP.xml
+INFO	2017.11.17 08:44:18	Workflow Author: Nathalie Lehmann
+INFO	2017.11.17 08:44:18	Workflow Description: First Eoulsan workflow for DropSeq / 10x Genomics data
+INFO	2017.11.17 08:44:18	Workflow Name: DropSeq workflow
+INFO	2017.11.17 08:44:18	Job Id: eoulsan-20171117-084417
+INFO	2017.11.17 08:44:18	Job UUID: 9c2768f3-eb2f-42c2-9b98-82feab33c9ab
+INFO	2017.11.17 08:44:18	Job Description: no job description
+INFO	2017.11.17 08:44:18	Job Environment: Local Mode on Intel(R) Xeon(R) CPU E5-2650 v2 @ 2.60GHz, 16 CPU(s)/thread(s), 65921460 kB
+INFO	2017.11.17 08:44:18	Job Base path: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3/eoulsan-20171117-084417/working
+INFO	2017.11.17 08:44:18	Job Output path: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3
+INFO	2017.11.17 08:44:18	Job Log path: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3/eoulsan-20171117-084417
+INFO	2017.11.17 08:44:18	Found 1 sample(s) in design file
+INFO	2017.11.17 08:44:18	Init all steps with global parameters: [main.docker.uri=unix:///var/run/docker.sock, main.docker.mount.nfs.roots=true, main.galaxy.tool.path=/kingdoms/csb/workspace3/lehmann/Eoulsan/galaxy/galaxytools, main.format.path=/kingdoms/csb/workspace3/lehmann/Eoulsan/galaxy/formats]
+INFO	2017.11.17 08:44:18	Setting: main.docker.uri=unix:///var/run/docker.sock
+INFO	2017.11.17 08:44:18	Setting: main.docker.mount.nfs.roots=true
+INFO	2017.11.17 08:44:18	Setting: main.galaxy.tool.path=/kingdoms/csb/workspace3/lehmann/Eoulsan/galaxy/galaxytools
+INFO	2017.11.17 08:44:18	Setting: main.format.path=/kingdoms/csb/workspace3/lehmann/Eoulsan/galaxy/formats
+INFO	2017.11.17 08:44:18	Create step umistepwhitelist7 (umi_whitelist_dev) step.
+INFO	2017.11.17 08:44:19	Create step umistepextract7 (umi_extract) step.
+INFO	2017.11.17 08:44:19	Create step filterreads7 (filterreads) step.
+INFO	2017.11.17 08:44:19	Create step mapreads7 (mapreads) step.
+INFO	2017.11.17 08:44:19	Create step filtersam7 (filtersam) step.
+INFO	2017.11.17 08:44:19	Create step countstep7 (umi_count) step.
+INFO	2017.11.17 08:44:19	Use cross data product for root step
+INFO	2017.11.17 08:44:19	Configure design step with step parameters: []
+INFO	2017.11.17 08:44:19	Use cross data product for design step
+INFO	2017.11.17 08:44:19	Configure checker step with step parameters: []
+INFO	2017.11.17 08:44:19	Use cross data product for checker step
+INFO	2017.11.17 08:44:19	Use cross data product for first step
+INFO	2017.11.17 08:44:19	Configure umistepwhitelist7 step with step parameters: []
+INFO	2017.11.17 08:44:19	Use cross data product for umistepwhitelist7 step
+INFO	2017.11.17 08:44:19	Configure umistepextract7 step with step parameters: []
+INFO	2017.11.17 08:44:19	Use cross data product for umistepextract7 step
+INFO	2017.11.17 08:44:19	Configure filterreads7 step with step parameters: [trim.length.threshold=11, quality.threshold=12]
+INFO	2017.11.17 08:44:19	Set read filter "trim" with parameter: length.threshold=11
+INFO	2017.11.17 08:44:19	Set read filter "quality" with parameter: threshold=12
+INFO	2017.11.17 08:44:19	Use cross data product for filterreads7 step
+INFO	2017.11.17 08:44:19	Configure mapreads7 step with step parameters: [mapper=star]
+INFO	2017.11.17 08:44:19	In mapreads, mapper=STAR (version: )
+INFO	2017.11.17 08:44:19	In mapreads, mapperarguments=null
+INFO	2017.11.17 08:44:19	Use cross data product for mapreads7 step
+INFO	2017.11.17 08:44:19	Configure filtersam7 step with step parameters: [removeunmapped=, removemultimatches=]
+INFO	2017.11.17 08:44:19	Set alignments filter "removeunmapped" with no parameter
+INFO	2017.11.17 08:44:19	Set alignments filter "removemultimatches" with no parameter
+INFO	2017.11.17 08:44:19	Use cross data product for filtersam7 step
+INFO	2017.11.17 08:44:19	Configure countstep7 step with step parameters: []
+INFO	2017.11.17 08:44:19	Use cross data product for countstep7 step
+INFO	2017.11.17 08:44:21	Configure genericindexgenerator step with step parameters: []
+INFO	2017.11.17 08:44:21	Use cross data product for genericindexgenerator step
+INFO	2017.11.17 08:44:21	Configure genomedescgenerator step with step parameters: []
+INFO	2017.11.17 08:44:21	Use cross data product for genomedescgenerator step
+INFO	2017.11.17 08:44:22	Start analysis at Fri Nov 17 08:44:22 CET 2017
+INFO	2017.11.17 08:44:24	Start of task #1
+INFO	2017.11.17 08:44:24	Execute task
+INFO	2017.11.17 08:44:24	End of task #1
+INFO	2017.11.17 08:44:24	Duration: 00:00:00.003
+INFO	2017.11.17 08:44:24	Result: Success
+INFO	2017.11.17 08:44:25	Start of task #2
+INFO	2017.11.17 08:44:25	Execute task
+INFO	2017.11.17 08:44:25	End of task #2
+INFO	2017.11.17 08:44:25	Duration: 00:00:00.005
+INFO	2017.11.17 08:44:25	Result: Success
+INFO	2017.11.17 08:44:48	Start of task #6
+INFO	2017.11.17 08:44:48	Execute task
+INFO	2017.11.17 08:44:48	End of task #6
+INFO	2017.11.17 08:44:48	Duration: 00:00:00.001
+INFO	2017.11.17 08:44:48	Result: Success
+INFO	2017.11.17 11:30:19	Remove shutdownThread
+INFO	2017.11.17 11:30:21	Successful end of the analysis in 02:45:58.738 s.
+INFO	2017.11.17 11:30:21	End of exec action

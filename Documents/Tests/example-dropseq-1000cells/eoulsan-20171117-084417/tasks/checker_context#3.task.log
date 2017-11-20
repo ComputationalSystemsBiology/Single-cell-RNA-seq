@@ -1,0 +1,12 @@
+INFO	2017.11.17 08:44:26	Start of task #3
+INFO	2017.11.17 08:44:26	Execute task
+INFO	2017.11.17 08:44:26	Start checker genome_checker to check: [/import/kg_csbgn01/genomes/homo_sapiens/hg38/fasta/hg38.fasta]
+INFO	2017.11.17 08:44:26	Genome description storage found. 10 entries in : /import/kg_csbgn01/genomes/eoulsan/genome_descriptions
+INFO	2017.11.17 08:44:43	End of checker genome_checker to check: [/import/kg_csbgn01/genomes/homo_sapiens/hg38/fasta/hg38.fasta]
+INFO	2017.11.17 08:44:43	Start checker reads_checker to check: [/import/kg_csbws03/lehmann/Data/pDC_Soumelis_2017/step1_bcl2fastq/T3_R2.fastq]
+INFO	2017.11.17 08:44:44	End of checker reads_checker to check: [/import/kg_csbws03/lehmann/Data/pDC_Soumelis_2017/step1_bcl2fastq/T3_R2.fastq]
+INFO	2017.11.17 08:44:44	Start checker gtf_checker to check: [/import/kg_csbgn01/genomes/homo_sapiens/hg38/annotation/ensembl_Homo_sapiens.GRCh38.84.gtf]
+INFO	2017.11.17 08:44:44	End of checker gtf_checker to check: [/import/kg_csbgn01/genomes/homo_sapiens/hg38/annotation/ensembl_Homo_sapiens.GRCh38.84.gtf]
+INFO	2017.11.17 08:44:44	End of task #3
+INFO	2017.11.17 08:44:44	Duration: 00:00:17.433
+INFO	2017.11.17 08:44:44	Result: Success
