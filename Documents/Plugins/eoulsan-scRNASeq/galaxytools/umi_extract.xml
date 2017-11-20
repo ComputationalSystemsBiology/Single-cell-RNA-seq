@@ -1,9 +1,12 @@
 <tool id="umi_extract" name="umi_extract">
-	<description>Extract barcodes and UMIs and add to read names</description>
-	<command interpreter="docker" dockerimage="genomicpariscentre/umi-tools:0.5.1">bash -c "umi_tools extract --stdin \$(echo $input | sed 's/R2/R1/g') --stdout \$(echo ${input} | sed 's/R2/R1extracted/g') --read2-in ${input} --read2-out=${output} --whitelist=${whitelist_umi}  --bc-pattern=CCCCCCCCCCCCCCCCNNNNNNNNNN --filter-cell-barcode 2> ${output}.err"</command>
+	<description>Extract barcodes and UMIs and add to read names - more info : "umi_tools extract -help"</description>
+	<command interpreter="docker" dockerimage="genomicpariscentre/umi-tools:0.5.1">bash -c "umi_tools extract --stdin \$(echo $input | sed 's/R2/R1/g') --stdout \$(echo ${input} | sed 's/R2/R1extracted/g') --read2-in ${input} --read2-out=${output} --whitelist=${whitelist_umi}  --bc-pattern=${bc_pattern} --filter-cell-barcode  --quality-filter-threshold=${quality_filter_threshold} --quality-filter-mask=${quality_filter_mask} 2> ${output}.err"</command>
 	<inputs>
 		<param format="fastq" name="input" type="data" label="Source file"/>	
 		<param format="whitelist_umi" name="whitelist_umi" type="data" label="Source file"/>
+		<param name="bc_pattern" type="text" value="CCCCCCCCCCCCCCCCNNNNNNNNNN" label="Barcode pattern (identifies bases position) - N = UMI position (required) ; C = cell barcode position (optional) ; X = sample position (optional)"/>
+		<param name="quality_filter_threshold" type="integer" value="0" label="Remove reads where any UMI base quality score falls below this threshold - Usage : "--quality-filter-threshold=30""/>
+		<param name="quality_filter_mask" type="integer" value="0" label="If a UMI base has a quality below this threshold, replace the base with 'N' - Usage : "--quality-filter-mask=10""/>
 	</inputs>
 	<outputs>
 		<data format="fastq" name="output"/>

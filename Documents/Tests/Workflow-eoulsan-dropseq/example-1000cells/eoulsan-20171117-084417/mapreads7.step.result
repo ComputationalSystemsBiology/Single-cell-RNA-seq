@@ -1,0 +1,36 @@
+
+{
+    "Job id":"eoulsan-20171117-084417",
+    "Job UUID":"9c2768f3-eb2f-42c2-9b98-82feab33c9ab",
+    "Job description":"no job description",
+    "Job environment":"Local Mode on Intel(R) Xeon(R) CPU E5-2650 v2 @ 2.60GHz, 16 CPU(s)/thread(s), 65921460 kB",
+    "Step id":"mapreads7",
+    "Step name":"mapreads",
+    "Step class":"fr.ens.biologie.genomique.eoulsan.modules.mapping.local.ReadsMapperLocalModule",
+    "Step version":"2.0",
+    "Start time":"November 17, 2017 10:30:30 AM CET",
+    "End time":"November 17, 2017 10:51:27 AM CET",
+    "Duration":"00:20:56.491",
+    "Duration in milliseconds":1256491,
+    "Success":true,
+    "Step message":"",
+    "Step parameters":{
+        "mapper":"star"
+    },
+    "Counters":{
+        "T3R2":{
+            "output mapping alignments":61007563
+        }
+    },
+    "Tasks":[
+        {
+            "Task id":10,
+            "Task name":"T3R2",
+            "Task description":"Mapping reads in fastq-sanger with STAR (T3R2, filterreads7_output_reads_T3R2_file0.fq)",
+            "Task message":"",
+            "Task counters":{
+                "output mapping alignments":61007563
+            }
+        }
+    ]
+}

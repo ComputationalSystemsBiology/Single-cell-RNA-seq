@@ -1,0 +1,40 @@
+INFO	2017.11.17 09:16:22	Start of task #8
+INFO	2017.11.17 09:16:22	Execute task
+INFO	2017.11.17 09:16:22	Parsing xml file successfully.
+INFO	2017.11.17 09:16:22	Tool description ToolInfo{toolID=umi_extract, toolName=umi_extract, toolVersion=unknown, description=Extract barcodes and UMIs and add to read names, interpreter=docker, dockerImage=genomicpariscentre/umi-tools:0.5.1, commandScript=bash -c "umi_tools extract --stdin \$(echo $input | sed 's/R2/R1/g') --stdout \$(echo ${input} | sed 's/R2/R1extracted/g') --read2-in ${input} --read2-out=${output} --whitelist=${whitelist_umi}  --bc-pattern=CCCCCCCCCCCCCCCCNNNNNNNNNN --filter-cell-barcode 2> ${output}.err"}
+INFO	2017.11.17 09:16:22	Tool variable settings  output=/import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3/umistepextract7_output/umistepextract7_output_reads_T3R2_file0.fq	whitelist_umi=/import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3/umistepwhitelist7_output/umistepwhitelist7_output_umiwhitelist_T3R2.txt	input=/import/kg_csbws03/lehmann/Data/pDC_Soumelis_2017/step1_bcl2fastq/T3_R2.fastq	TMPDIR=/scratch
+INFO	2017.11.17 09:16:23	Interpreter: docker
+INFO	2017.11.17 09:16:23	Command: [bash, -c, umi_tools extract --stdin $(echo /import/kg_csbws03/lehmann/Data/pDC_Soumelis_2017/step1_bcl2fastq/T3_R2.fastq | sed 's/R2/R1/g') --stdout $(echo /import/kg_csbws03/lehmann/Data/pDC_Soumelis_2017/step1_bcl2fastq/T3_R2.fastq | sed 's/R2/R1extracted/g') --read2-in /import/kg_csbws03/lehmann/Data/pDC_Soumelis_2017/step1_bcl2fastq/T3_R2.fastq --read2-out=/import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3/umistepextract7_output/umistepextract7_output_reads_T3R2_file0.fq --whitelist=/import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3/umistepwhitelist7_output/umistepwhitelist7_output_umiwhitelist_T3R2.txt  --bc-pattern=CCCCCCCCCCCCCCCCNNNNNNNNNN --filter-cell-barcode 2> /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3/umistepextract7_output/umistepextract7_output_reads_T3R2_file0.fq.err]
+INFO	2017.11.17 09:16:23	Execution directory: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3/umistepextract7_output
+INFO	2017.11.17 09:16:23	Workflow output directory: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3
+INFO	2017.11.17 09:16:23	Temporary directory: /scratch
+INFO	2017.11.17 09:16:23	Stdout: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3/eoulsan-20171117-084417/tasks/umistepextract7_context#8.galaxytool.out
+INFO	2017.11.17 09:16:23	Stderr: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3/eoulsan-20171117-084417/tasks/umistepextract7_context#8.galaxytool.err
+INFO	2017.11.17 09:16:23	file: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3/umistepextract7_output, fileSystem type: nfs4
+INFO	2017.11.17 09:16:23	in: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3/umistepextract7_output, out: /import/kg_csbws03
+INFO	2017.11.17 09:16:23	file: /import/kg_csbws03/lehmann/Data/pDC_Soumelis_2017/step1_bcl2fastq/T3_R2.fastq, fileSystem type: nfs4
+INFO	2017.11.17 09:16:23	in: /import/kg_csbws03/lehmann/Data/pDC_Soumelis_2017/step1_bcl2fastq/T3_R2.fastq, out: /import/kg_csbws03
+INFO	2017.11.17 09:16:23	file: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3/umistepwhitelist7_output/umistepwhitelist7_output_umiwhitelist_T3R2.txt, fileSystem type: nfs4
+INFO	2017.11.17 09:16:23	in: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3/umistepwhitelist7_output/umistepwhitelist7_output_umiwhitelist_T3R2.txt, out: /import/kg_csbws03
+INFO	2017.11.17 09:16:23	file: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3, fileSystem type: nfs4
+INFO	2017.11.17 09:16:23	in: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3, out: /import/kg_csbws03
+INFO	2017.11.17 09:16:23	file: /scratch, fileSystem type: ext4
+INFO	2017.11.17 09:49:55	Interpreter: docker
+INFO	2017.11.17 09:49:55	Command: [bash, -c, umi_tools extract --stdin $(echo /import/kg_csbws03/lehmann/Data/pDC_Soumelis_2017/step1_bcl2fastq/T3_R2.fastq | sed 's/R2/R1/g') --stdout $(echo /import/kg_csbws03/lehmann/Data/pDC_Soumelis_2017/step1_bcl2fastq/T3_R2.fastq | sed 's/R2/R1extracted/g') --read2-in /import/kg_csbws03/lehmann/Data/pDC_Soumelis_2017/step1_bcl2fastq/T3_R2.fastq --read2-out=/import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3/umistepextract7_output/umistepextract7_output_reads_T3R2_file0.fq --whitelist=/import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3/umistepwhitelist7_output/umistepwhitelist7_output_umiwhitelist_T3R2.txt  --bc-pattern=CCCCCCCCCCCCCCCCNNNNNNNNNN --filter-cell-barcode 2> /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3/umistepextract7_output/umistepextract7_output_reads_T3R2_file0.fq.err]
+INFO	2017.11.17 09:49:55	Execution directory: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3/umistepextract7_output
+INFO	2017.11.17 09:49:55	Workflow output directory: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3
+INFO	2017.11.17 09:49:55	Temporary directory: /scratch
+INFO	2017.11.17 09:49:55	Stdout: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3/eoulsan-20171117-084417/tasks/umistepextract7_context#8.galaxytool.out
+INFO	2017.11.17 09:49:55	Stderr: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3/eoulsan-20171117-084417/tasks/umistepextract7_context#8.galaxytool.err
+INFO	2017.11.17 09:49:55	file: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3/umistepextract7_output, fileSystem type: nfs4
+INFO	2017.11.17 09:49:55	in: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3/umistepextract7_output, out: /import/kg_csbws03
+INFO	2017.11.17 09:49:55	file: /import/kg_csbws03/lehmann/Data/pDC_Soumelis_2017/step1_bcl2fastq/T3_R2.fastq, fileSystem type: nfs4
+INFO	2017.11.17 09:49:55	in: /import/kg_csbws03/lehmann/Data/pDC_Soumelis_2017/step1_bcl2fastq/T3_R2.fastq, out: /import/kg_csbws03
+INFO	2017.11.17 09:49:55	file: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3/umistepwhitelist7_output/umistepwhitelist7_output_umiwhitelist_T3R2.txt, fileSystem type: nfs4
+INFO	2017.11.17 09:49:55	in: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3/umistepwhitelist7_output/umistepwhitelist7_output_umiwhitelist_T3R2.txt, out: /import/kg_csbws03
+INFO	2017.11.17 09:49:55	file: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3, fileSystem type: nfs4
+INFO	2017.11.17 09:49:55	in: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3, out: /import/kg_csbws03
+INFO	2017.11.17 09:49:55	file: /scratch, fileSystem type: ext4
+INFO	2017.11.17 10:21:32	End of task #8
+INFO	2017.11.17 10:21:32	Duration: 01:05:09.443
+INFO	2017.11.17 10:21:32	Result: Success

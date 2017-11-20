@@ -1,0 +1,12 @@
+INFO	2017.11.17 08:44:46	Start of task #5
+INFO	2017.11.17 08:44:46	Execute task
+INFO	2017.11.17 08:44:47	Genome index storage found.18 entries in : /import/kg_csbgn01/genomes/eoulsan/genome_indexes
+INFO	2017.11.17 08:44:47	Mapper name: STAR
+INFO	2017.11.17 08:44:47	Mapper version: 2.5.2b
+INFO	2017.11.17 08:44:47	Mapper flavor: standard
+INFO	2017.11.17 08:44:47	Indexer arguments: 
+INFO	2017.11.17 08:44:47	Mapper index found, no need to recompute it (mapper index file: /import/kg_csbgn01/genomes/eoulsan/genome_indexes/star-35ae63ccb9ff8eeb0b2a076b70167d66.zip)
+INFO	2017.11.17 08:44:47	Copy or create a symbolic link for the mapper index file (Created file or symbolic link: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3/eoulsan-20171117-084417/working/genericindexgenerator_output_starindex_genomefile.zip)
+INFO	2017.11.17 08:44:47	End of task #5
+INFO	2017.11.17 08:44:47	Duration: 00:00:00.281
+INFO	2017.11.17 08:44:47	Result: Success

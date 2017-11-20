@@ -1,0 +1,78 @@
+<analysis>
+        <formatversion>1.0</formatversion>
+        <name>DropSeq workflow</name>
+        <description>First Eoulsan workflow for DropSeq / 10x Genomics data</description>
+        <author>Nathalie Lehmann</author>
+
+        <steps>                  
+             	<step id="step1_umiwhitelist" skip="false">
+				<module>umi_whitelist</module>
+				<parameters></parameters>
+		</step>
+		<step id="step2_umiextract" dataproduct="match" skip="false">
+                                <module>umi_extract</module>
+                                <parameters></parameters>
+                </step>			
+        	<step id="step3_filterreads" skip="false">
+                		<name>filterreads</name>
+                		<parameters>
+                        		<parameter>
+                                		<name>trim.length.threshold</name>
+                                		<value>11</value>
+                        		</parameter>
+                        		<parameter>
+                                		<name>quality.threshold</name>
+                                		<value>12</value>
+                        		</parameter>
+               			</parameters>
+        	</step>
+        	<step id="step4_mapreads" skip="false">
+                	<module>mapreads</module>
+                	<parameters>
+                        	<parameter>
+                                	<name>mapper</name>
+                                	<value>star</value>
+                        	</parameter>
+				<!--parameter>
+                                        <name>mapper.arguments</name>
+                                        <value></value>
+                                </parameter-->
+                	</parameters>
+        	</step>
+        	<step id="step5_filtersam"  skip="false">
+                	<module>filtersam</module>
+                	<parameters>
+                        	<parameter>
+                                	<name>removeunmapped</name>
+                                	<value></value>
+                        	</parameter>
+                        	<parameter>
+                           		<name>removemultimatches</name>
+                                	<value></value>
+                        	</parameter>
+                	</parameters>
+        	</step>
+		<step id="step6_umicount" skip="false">
+                                <module>umi_count</module>
+                                <parameters></parameters>
+                </step>
+	</steps>
+  	<globals>
+        	<parameter>
+	        	<name>main.docker.mount.nfs.roots</name>
+	        	<value>true</value>
+        	</parameter>
+        	<parameter>
+	        	<name>main.docker.uri</name>
+	        	<value>unix:///var/run/docker.sock</value>
+        	</parameter>
+		<!--parameter>
+                        <name>main.galaxy.tool.path</name>
+                        <value>/import/kg_csbws03/lehmann/Eoulsan/Single-cell-RNA-seq/Documents/Plugins/eoulsan-scRNASeq/galaxytools/</value>
+                </parameter>
+                <parameter>
+                        <name>main.format.path</name>
+                        <value>/import/kg_csbws03/lehmann/Eoulsan/Single-cell-RNA-seq/Documents/Plugins/eoulsan-scRNASeq/formats</value> 
+                </parameter-->
+    	</globals>
+</analysis>

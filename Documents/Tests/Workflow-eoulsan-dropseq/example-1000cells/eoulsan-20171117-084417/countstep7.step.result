@@ -1,0 +1,33 @@
+
+{
+    "Job id":"eoulsan-20171117-084417",
+    "Job UUID":"9c2768f3-eb2f-42c2-9b98-82feab33c9ab",
+    "Job description":"no job description",
+    "Job environment":"Local Mode on Intel(R) Xeon(R) CPU E5-2650 v2 @ 2.60GHz, 16 CPU(s)/thread(s), 65921460 kB",
+    "Step id":"countstep7",
+    "Step name":"umi_count",
+    "Step class":"fr.ens.biologie.genomique.eoulsan.modules.GalaxyToolModule",
+    "Step version":"0.0unknown",
+    "Start time":"November 17, 2017 11:14:42 AM CET",
+    "End time":"November 17, 2017 11:30:17 AM CET",
+    "Duration":"00:15:35.065",
+    "Duration in milliseconds":935065,
+    "Success":true,
+    "Step message":"",
+    "Step parameters":{
+    },
+    "Counters":{
+        "T3R2":{
+        }
+    },
+    "Tasks":[
+        {
+            "Task id":12,
+            "Task name":"T3R2",
+            "Task description":"Launch tool galaxy umi_count, version unknown with interpreter docker",
+            "Task message":"",
+            "Task counters":{
+            }
+        }
+    ]
+}

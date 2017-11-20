@@ -1,0 +1,36 @@
+INFO	2017.11.17 08:44:50	Start of task #7
+INFO	2017.11.17 08:44:50	Execute task
+INFO	2017.11.17 08:44:50	Parsing xml file successfully.
+INFO	2017.11.17 08:44:50	Tool description ToolInfo{toolID=umi_whitelist_dev, toolName=umi_whitelist_dev, toolVersion=unknown, description=Identify correct cell barcodes - more info : "umi_tools whitelist -help", interpreter=docker, dockerImage=genomicpariscentre/umi-tools:0.5.1, commandScript=bash -c "umi_tools whitelist --stdin \$(echo $input | sed 's/R2/R1/g') --bc-pattern=${bc_pattern} --plot-prefix=plot --set-cell-number=${set_cell_number} --expect-cells=${expect_cells}  --log2stderr > $output 2> ${output}.err"}
+INFO	2017.11.17 08:44:50	Tool variable settings  expect_cells=0	bc_pattern=CCCCCCCCCCCCCCCCNNNNNNNNNN	input=/import/kg_csbws03/lehmann/Data/pDC_Soumelis_2017/step1_bcl2fastq/T3_R2.fastq	set_cell_number=0	TMPDIR=/scratch	output=/import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3/umistepwhitelist7_output/umistepwhitelist7_output_umiwhitelist_T3R2.txt
+INFO	2017.11.17 08:44:58	Interpreter: docker
+INFO	2017.11.17 08:44:58	Command: [bash, -c, umi_tools whitelist --stdin $(echo /import/kg_csbws03/lehmann/Data/pDC_Soumelis_2017/step1_bcl2fastq/T3_R2.fastq | sed 's/R2/R1/g') --bc-pattern=CCCCCCCCCCCCCCCCNNNNNNNNNN --plot-prefix=plot --set-cell-number=0 --expect-cells=0  --log2stderr > /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3/umistepwhitelist7_output/umistepwhitelist7_output_umiwhitelist_T3R2.txt 2> /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3/umistepwhitelist7_output/umistepwhitelist7_output_umiwhitelist_T3R2.txt.err]
+INFO	2017.11.17 08:44:58	Execution directory: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3/umistepwhitelist7_output
+INFO	2017.11.17 08:44:58	Workflow output directory: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3
+INFO	2017.11.17 08:44:58	Temporary directory: /scratch
+INFO	2017.11.17 08:44:58	Stdout: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3/eoulsan-20171117-084417/tasks/umistepwhitelist7_context#7.galaxytool.out
+INFO	2017.11.17 08:44:58	Stderr: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3/eoulsan-20171117-084417/tasks/umistepwhitelist7_context#7.galaxytool.err
+INFO	2017.11.17 08:44:59	file: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3/umistepwhitelist7_output, fileSystem type: nfs4
+INFO	2017.11.17 08:44:59	in: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3/umistepwhitelist7_output, out: /import/kg_csbws03
+INFO	2017.11.17 08:44:59	file: /import/kg_csbws03/lehmann/Data/pDC_Soumelis_2017/step1_bcl2fastq/T3_R2.fastq, fileSystem type: nfs4
+INFO	2017.11.17 08:44:59	in: /import/kg_csbws03/lehmann/Data/pDC_Soumelis_2017/step1_bcl2fastq/T3_R2.fastq, out: /import/kg_csbws03
+INFO	2017.11.17 08:44:59	file: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3, fileSystem type: nfs4
+INFO	2017.11.17 08:44:59	in: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3, out: /import/kg_csbws03
+INFO	2017.11.17 08:44:59	file: /scratch, fileSystem type: ext4
+INFO	2017.11.17 09:01:26	Interpreter: docker
+INFO	2017.11.17 09:01:26	Command: [bash, -c, umi_tools whitelist --stdin $(echo /import/kg_csbws03/lehmann/Data/pDC_Soumelis_2017/step1_bcl2fastq/T3_R2.fastq | sed 's/R2/R1/g') --bc-pattern=CCCCCCCCCCCCCCCCNNNNNNNNNN --plot-prefix=plot --set-cell-number=0 --expect-cells=0  --log2stderr > /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3/umistepwhitelist7_output/umistepwhitelist7_output_umiwhitelist_T3R2.txt 2> /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3/umistepwhitelist7_output/umistepwhitelist7_output_umiwhitelist_T3R2.txt.err]
+INFO	2017.11.17 09:01:26	Execution directory: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3/umistepwhitelist7_output
+INFO	2017.11.17 09:01:26	Workflow output directory: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3
+INFO	2017.11.17 09:01:26	Temporary directory: /scratch
+INFO	2017.11.17 09:01:26	Stdout: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3/eoulsan-20171117-084417/tasks/umistepwhitelist7_context#7.galaxytool.out
+INFO	2017.11.17 09:01:26	Stderr: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3/eoulsan-20171117-084417/tasks/umistepwhitelist7_context#7.galaxytool.err
+INFO	2017.11.17 09:01:26	file: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3/umistepwhitelist7_output, fileSystem type: nfs4
+INFO	2017.11.17 09:01:26	in: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3/umistepwhitelist7_output, out: /import/kg_csbws03
+INFO	2017.11.17 09:01:26	file: /import/kg_csbws03/lehmann/Data/pDC_Soumelis_2017/step1_bcl2fastq/T3_R2.fastq, fileSystem type: nfs4
+INFO	2017.11.17 09:01:26	in: /import/kg_csbws03/lehmann/Data/pDC_Soumelis_2017/step1_bcl2fastq/T3_R2.fastq, out: /import/kg_csbws03
+INFO	2017.11.17 09:01:26	file: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3, fileSystem type: nfs4
+INFO	2017.11.17 09:01:26	in: /import/kg_csbws03/lehmann/Eoulsan/tests/sample1TP-T3, out: /import/kg_csbws03
+INFO	2017.11.17 09:01:26	file: /scratch, fileSystem type: ext4
+INFO	2017.11.17 09:16:21	End of task #7
+INFO	2017.11.17 09:16:21	Duration: 00:31:31.571
+INFO	2017.11.17 09:16:21	Result: Success
