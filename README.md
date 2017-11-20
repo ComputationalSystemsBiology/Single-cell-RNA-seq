@@ -4,7 +4,7 @@ This repository contains tools and workflows for the analysis of single cell RNA
 
 In order to deal with such a large amount of data, we will use [Eoulsan](http://www.outils.genomique.biologie.ens.fr/eoulsan/index.html). It is a framework dedicated to high throughput sequencing data analysis on distributed computers. 
 
-## Why those worflows ?
+## Presentation
 
 ## Installation
 For more information about Eoulsan installation, check the dedicated webpage : http://www.outils.genomique.biologie.ens.fr/eoulsan/installing.html 
