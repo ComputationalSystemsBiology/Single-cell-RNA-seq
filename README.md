@@ -7,12 +7,16 @@ In order to deal with such a large amount of data, we will use [Eoulsan](http://
 ## Presentation
 
 ## Installation
-For more information about Eoulsan installation, check the dedicated webpage : http://www.outils.genomique.biologie.ens.fr/eoulsan/installing.html 
+Please note that core Eoulsan currently runs only on Linux distributions. However, if you use MacOS or Windows, you can install and run Eoulsan through a docker image. For more information about Eoulsan installation, check the dedicated webpage : http://www.outils.genomique.biologie.ens.fr/eoulsan/installing.html 
+
 ```{bash, eval=FALSE}
-# Installation
+# Linux installation
 wget http://outils.genomique.biologie.ens.fr/eoulsan/eoulsan-2.0-beta5.tar.gz
 tar xzf eoulsan-2.0-beta5.tar.gz
 cd eoulsan-2.0-beta5
+
+# Mac / Windows installation
+curl http://outils.genomique.biologie.ens.fr/eoulsan/eoulsan-docker-installer.sh | bash
 ```
 
 ## Quick start
