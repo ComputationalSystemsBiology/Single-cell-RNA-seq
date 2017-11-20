@@ -10,15 +10,37 @@ In order to deal with such a large amount of data, we will use [Eoulsan](http://
 Please note that core Eoulsan currently runs only on Linux distributions. However, if you use MacOS or Windows, you can install and run Eoulsan through a docker image. For more information about Eoulsan installation, check the dedicated webpage : http://www.outils.genomique.biologie.ens.fr/eoulsan/installing.html 
 
 ```{bash, eval=FALSE}
-# Linux installation
+# Installation (Linux only)
 wget http://outils.genomique.biologie.ens.fr/eoulsan/eoulsan-2.0-beta5.tar.gz
 tar xzf eoulsan-2.0-beta5.tar.gz
 cd eoulsan-2.0-beta5
 
-# Mac / Windows installation
+# Installation with docker (Linux / MacOS / Windows)
 curl http://outils.genomique.biologie.ens.fr/eoulsan/eoulsan-docker-installer.sh | bash
 ```
 
 ## Quick start
+
+### Create design file
+
+```{bash, eval=FALSE}
+genome=/import/kg_csbgn01/genomes/homo_sapiens/hg38/fasta/hg38.fasta
+annotation=/import/kg_csbgn01/genomes/homo_sapiens/hg38/annotation/ensembl_Homo_sapiens.GRCh38.84.gtf
+
+eoulsan createdesign /import/kg_csbws03/lehmann/Data/pDC_Soumelis_2017/step1_bcl2fastq/T*R2.fastq $genome $annotation
+```
+
+### Customize your analysis with the workflow file
+
+```{bash, eval=FALSE}
+workflow=/import/kg_csbws01/lehmann/Eoulsan/pDC-7TP/workflow-10000cells.xml
+```
+
+### Run Eoulsan
+
+```{bash, eval=FALSE}
+screen
+eoulsan.sh -conf eoulsan_conf exec workflow-10000cells.xml design.txt
+```
 
 ## Help
