@@ -11,9 +11,9 @@ Please note that core Eoulsan currently runs only on Linux distributions. Howeve
 
 ```{bash, eval=FALSE}
 # Installation (Linux only)
-wget http://outils.genomique.biologie.ens.fr/eoulsan/eoulsan-2.0-beta5.tar.gz
-tar xzf eoulsan-2.0-beta5.tar.gz
-cd eoulsan-2.0-beta5
+wget http://outils.genomique.biologie.ens.fr/eoulsan/eoulsan-2.0.tar.gz
+tar xzf eoulsan-2.0.tar.gz
+cd eoulsan-2.0
 
 # Installation with docker (Linux / MacOS / Windows)
 curl http://outils.genomique.biologie.ens.fr/eoulsan/eoulsan-docker-installer.sh | bash
