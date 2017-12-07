@@ -58,7 +58,7 @@ rm ${exp_file}
 # Download Samples
 get_samples $1 ${sample_file}
 urls=$(get_samples_url ${sample_file})
-rm ${sample_file})
+rm ${sample_file}
 
 
 	# Check if URLs were found
@@ -79,7 +79,7 @@ cd ${outDir}
 for url in ${urls}
 do
 	# Treat file name
-	sample=$(echo ${url} | sed 's/[a-zA-Z0-9\.:]*\///g' | sed 's/\.[a-zA-Z0-9]*//g'
+	sample=$(echo ${url} | sed 's/[a-zA-Z0-9\.:]*\///g' | sed 's/\.[a-zA-Z0-9]*//g')
 	file=$(echo ${url} | sed 's/[a-zA-Z0-9\.:]*\///g')
 	if [ -e  ./${sample}*.fastq.bz2 ]
 	then
