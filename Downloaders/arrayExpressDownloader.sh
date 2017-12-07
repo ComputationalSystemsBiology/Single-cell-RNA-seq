@@ -37,7 +37,7 @@ Authors : ${author}" > ${info_file}
 
 # get samples : given an ID download samples xml for parsing
 function get_samples {
-	wget -O $2 https://www.ebi.ac.uk/arrayexpress/xml/v3/experiments/$1/sample > samples.tmp
+	wget -O $2 https://www.ebi.ac.uk/arrayexpress/xml/v3/experiments/$1/samples > samples.tmp
 }
 # get samples url : given a file name, extract samples URL for downloading
 # parse XML file until samples URIs are found
