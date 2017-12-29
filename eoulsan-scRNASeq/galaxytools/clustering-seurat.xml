@@ -1,0 +1,43 @@
+<tool id="clustering-seurat" name="clustering-seurat" >
+	<description> Perform dimensionnality reduction and pseudo-time ordering on cells</description>
+	<command interpreter="docker"  dockerimage="genomicpariscentre/clustering-seurat:0.1">Rscript /scripts/seurat.R $matrix $cells $genes $normalize $scale $ncells $detection_threshold  $hvg_method $low_mean $high_mean $var $use_spike $nreplicate $proportion $significativity $score_threhsold $resolution $k $k_scale $algorithm $sparse $genesoutput $cellsouput</command>
+	<inputs>
+		<param format="filtered_expression_matrix_tsv" name="matrix" type="data" label="Source file" />
+		<param format="normalized_cells_metadata_tsv" name="cells" type="data" label="Source file" />
+		<param format="genes_metadata_tsv" name="genes" type="data" label="Source file" />
+		
+		<!-- Corrections parameters -->
+		<param name="normalize" type="text" value="True" label="Boolean weither to normalize data or not "/>
+		<param name="scale" type="text" value="True" label="Boolean weither to scale data for PCA or not"/>
+		
+		<!-- Expression filtering parameters -->
+		<param name="detection_threshold" type="float" value="10" min ="0" label="Minimum number of count to consider a gene as detected"/>
+		<param name="ncells" type="integer" value="0" min="0" label="Number of detection needed to keep a gene"/>
+		
+		<!-- Filtering on variability -->
+		<param name="hvg_method" type="text" value="none" label="Method for Highly variable genes detection : must be one of scran, seurat or none (no filtering)"/>
+		<param name="low_mean" type="float" value="0.01" min="0" max="5" label="Minimum mean logtransformed expression value to keep a gene"/>
+		<param name="high_mean" type="float" value="5" min="0" label="Maximum mean logtransformed expression value to keep a gene"/>
+		<param name="var" type="float" value="1" min="0" label="Minimum variability (as Z-score for Seurat or biological component for scran) to keep a gene"/>
+		<param name="use_spike" type="text" value="True" label="Boolean weither to use or not spikes (only used with scran algorithm)"/>
+		
+		
+		<!-- JackStraw options-->
+		<param name="nreplicate" type="integer" value="100" min="10" label="Number of jackstraw repitions"/>
+		<param name="proportion" type="float" value="0.1" max="1" label="Proportion of random features at each jackstraw iteration"/>
+		<param name="significativity" type="float" value="0.05" max="0.7" label="Significaty threshold for a principal component under jackstraw testing"/>
+		<param name="score_threhsold" type="float" value="0.00001" max="0.5" label="Significaty threshold for a gene on one component under jackstraw testing"/>
+		
+		
+		<!-- Clustering Options -->
+		<param name="resolution" type="float" min="0.2" value="0.8" label="Resolution parameter for clustering"/>
+		<param name="k" type="int" value="30" min="3" label="Number of nearest neighbours to consider"/>
+		<param name="k_scale" type="int" value="25"  label="Granularity option for k"/>
+		<param name="algorithm" type="text" value="SLM" label="Which clustering algorithm to use : must be one of Louvain, Louvain.multilevel, or SLM"/>
+		<param name="sparse" type="text" value="False" label="Boolean weither to use sparse matrix to store graph (recommanded for 10X data)"/>
+	</inputs>
+	<outputs>
+		<data format="genes_metadata_tsv" name="genesoutput" />
+		<data format="normalized_cells_metadata_tsv" name="cellsoutput" />
+	</outputs>
+</tool>
