@@ -77,7 +77,7 @@ public class MatrixCreatorModule extends AbstractModule {
 
     @Override
     public OutputPorts getOutputPorts() {
-        return singleOutputPort(EXPRESSION_MATRIX_TSV);
+        return singleOutputPort("matrix", EXPRESSION_MATRIX_TSV);
     }
 
     @Override
