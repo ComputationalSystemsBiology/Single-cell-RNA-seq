@@ -14,6 +14,8 @@
 		<param name="length_correction" type="text" value="False" label="Weither to correct for feature length or not before plotting"/>
 		<param name="cell_cycle" type="text" value="False" label="Weither to annotate cells for cell cycle or not"/>
 		<param name="organism" type="text" value="mus_musculus" label="Organism for cell cycle annotation, should be one of : mus_musculus or homo_ sapiens"/>
+		<param name="detection" type="int" value ="1" label="Detection threshold to consider a gene expressed"/>
+		<param name="n_cells" type="int" value="1" label="Number detection to keep a gene"/>
 	</inputs>
 	<outputs>
 		<data format="normalized_cells_metadata_tsv" name="cellsoutput" />
