@@ -1,4 +1,4 @@
-# List of files
+# List of Files
 basic.model.fits.pdf
 basic.model.fits.png
 clusterPlot.pdf
@@ -15,7 +15,8 @@ FittingPlot.pdf
 FittingPlot.png
 gaussianProbability.pdf
 gaussianProbability.png
-Index
+monocleMeanVar.png
+monocle.png
 PCsHeatmap.pdf
 PCsHeatmap.png
 PCSignificativityPlots.pdf
@@ -38,6 +39,8 @@ Saturation_curve_v21.pdf
 Saturation_curve_v21.png
 Saturation_curve_v22.pdf
 Saturation_curve_v22.png
+ScranMeanVar.pdf
+ScranMeanVar.png
 seuratFittedVariation.pdf
 seuratFittedVariation.png
 silhouettePlot.pdf
