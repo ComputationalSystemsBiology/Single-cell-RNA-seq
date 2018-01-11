@@ -1,6 +1,6 @@
 <tool id="scpoolednormalization" name="scpoolednormalization" >
 	<description> Perform library size estimation for all cells using pooling strategy proposed by Lun et al.</description>
-	<command interpreter="docker"  dockerimage="genomicpariscentre/scpoolednormalization:0.1">Rscript /scripts/SCSpikelessPooledNormalization.R $input1 $input2 $input3 $mode $color_by $precluster $min_cluster_size $force_positive $length_correction $cell_cycle $organism $output $detection $n_cells</command>
+	<command interpreter="docker"  dockerimage="genomicpariscentre/scpoolednormalization:0.1">Rscript /scripts/SCSpikelessPooledNormalization.R $matrix $cells $genes $mode $color_by $precluster $min_cluster_size $force_positive $length_correction $cell_cycle $organism $cellsoutput $detection $n_cells</command>
 	<inputs>
 		<param format="filtered_expression_matrix_tsv" name="matrix" type="data" label="Source file" />
 		<param format="filtered_cells_metadata_tsv" name="cells" type="data" label="Source file" />
