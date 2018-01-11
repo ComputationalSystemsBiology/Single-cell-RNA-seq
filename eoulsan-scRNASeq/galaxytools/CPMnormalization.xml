@@ -1,6 +1,6 @@
 <tool id="scpoolednormalization" name="CPM" >
 	<description> Perform library size estimation for all cells using CPM</description>
-	<command interpreter="docker"  dockerimage="genomicpariscentre/sumnormalization:0.1">Rscript /scripts/SCSpikelessPooledNormalization.R $matrix $cells $genes $mode $color_by CPM $length_correction  $cellsoutput </command>
+	<command interpreter="docker"  dockerimage="genomicpariscentre/sumnormalization:0.1">Rscript /scripts/sumNormalization.R $matrix $cells $genes $mode $color_by CPM $length_correction  $cellsoutput </command>
 	<inputs>
 		<param format="filtered_expression_matrix_tsv" name="matrix" type="data" label="Source file" />
 		<param format="filtered_cells_metadata_tsv" name="cells" type="data" label="Source file" />
