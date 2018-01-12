@@ -1,6 +1,6 @@
 <tool id="saturation" name="saturation-filtering" >
 	<description> Perform quality checking and filtering on raw count data from single cell RNA-Seq experiment using saturation model</description>
-	<command interpreter="docker"  dockerimage="genomicpariscentre/scqualitychecking:1.0">Rscript /scripts/qualityCheckingSaturation.R $matrix $cells $data $detection_threshold $expression_option $saturation_threshold $norm_threshold $rounding $n_cores $prop_mt $prop_sp $nb_filters $completecellsoutput $matrixoutput $cellsoutput</command>
+	<command interpreter="docker"  dockerimage="genomicpariscentre/scqualitychecking:1.0">Rscript /scripts/qualityCheckingSaturation.R $matrix $cells $genes $detection_threshold $expression_option $saturation_threshold $norm_threshold $rounding $n_cores $prop_mt $prop_sp $nb_filters $completecellsoutput $matrixoutput $cellsoutput</command>
 	<inputs>
 		<param format="expression_matrix_tsv" name="matrix" type="data" label="Source file" />
 		<param format="initial_cells_metadata_tsv" name="cells" type="data" label="Source file" />
