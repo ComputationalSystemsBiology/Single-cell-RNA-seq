@@ -1,6 +1,6 @@
 <tool id="saturation" name="saturation-filtering" >
 	<description> Perform quality checking and filtering on raw count data from single cell RNA-Seq experiment using saturation model</description>
-	<command interpreter="docker"  dockerimage="genomicpariscentre/scqualitychecking:1.0">Rscript /scripts/qualityCheckingSaturation.R $matrix $cells $genes $detection_threshold $expression_option $saturation_threshold $norm_threshold $rounding $n_cores $prop_mt $prop_sp $nb_filters $completecellsoutput $matrixoutput $cellsoutput</command>
+	<command interpreter="docker"  dockerimage="genomicpariscentre/scqualitychecking:1.0">Rscript /scripts/qualityCheckingSaturation.R $matrix $cells $genes $detection_threshold $expression_option $saturation_threshold $fit_threshold $rounding $n_cores $prop_mt $prop_sp $nb_filters $completecellsoutput $matrixoutput $cellsoutput</command>
 	<inputs>
 		<param format="expression_matrix_tsv" name="matrix" type="data" label="Source file" />
 		<param format="initial_cells_metadata_tsv" name="cells" type="data" label="Source file" />
@@ -9,7 +9,7 @@
 		<param name="detection_threshold" type="integer" value="10" label="Gene detection threshold"/>
 		<param name="expression_option" type="text" value="Endogenous" label="Type of detected genes"/>
 		<param name="saturation_threshold" type="float" max="1" value="0.7" label="Minimum saturation"/>
-		<param name="norm_threshold" type="float" value="0.01" label="Minimum for fitting values probability under Gaussian assumption"/>
+		<param name="fit_threshold" type="float" value="0.97" label="Minimum value for goodness of fit"/>
 		<param name="rounding" type="integer" value="10000" min="100" label="Magnitude of number of round rounding for saturation calculation"/>
 		<param name="n_cores" type="integer" value="2" min="1" label="Number of cores for execution"/>
 		<param name="prop_mt" type="float" value="0.1" max="1" label="Maximum proportion of mitochondrially aligned reads"/>
