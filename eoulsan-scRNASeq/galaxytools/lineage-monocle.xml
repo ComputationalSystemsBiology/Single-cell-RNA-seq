@@ -1,6 +1,6 @@
 <tool id="lineage-monocle" name="lineage-monocle" >
 	<description> Perform dimensionnality reduction and pseudo-time ordering on cells</description>
-	<command interpreter="docker"  dockerimage="genomicpariscentre/lineage-monocle:0.1">Rscript scripts/monocle.R $input1 $input2 $exp_family $detection_threshold $bypass $select_genes $mean_threshold $dispersion_fold_threshold $max_dim $reduction_method $norm_method $reverse $color_by </command>
+	<command interpreter="docker"  dockerimage="genomicpariscentre/lineage-monocle:0.1">Rscript scripts/monocle.R $matrix $cells $exp_family $detection_threshold $bypass $select_genes $mean_threshold $dispersion_fold_threshold $max_dim $reduction_method $norm_method $reverse $color_by </command>
 	<inputs>
 		<param format="filtered_expression_matrix_tsv" name="matrix" type="data" label="Source file" />
 		<param format="normalized_cells_metadata_tsv" name="cells" type="data" label="Source file" />

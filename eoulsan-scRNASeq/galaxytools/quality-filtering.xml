@@ -1,6 +1,6 @@
 <tool id="scqualitychecking" name="scqualitychecking01" >
 	<description> Perform quality checking and filtering on raw count data from single cell RNA-Seq experiment</description>
-	<command interpreter="docker"  dockerimage="genomicpariscentre/scqualitychecking:0.1">Rscript scripts/SCQualityChecking.R $input1 $input2 $input3 $plot_option $detection_threshold $expression_threshold $expression_option $reads_threshold $reads_option $prop_mt $prop_sp $nb_filters $output1 $output2 $output3</command>
+	<command interpreter="docker"  dockerimage="genomicpariscentre/scqualitychecking:0.1">Rscript scripts/SCQualityChecking.R $matrix $cells $genes $plot_option $detection_threshold $expression_threshold $expression_option $reads_threshold $reads_option $prop_mt $prop_sp $nb_filters $completcellsoutput $matrixoutput $cellsoutput</command>
 	<inputs>
 		<param format="expression_matrix_tsv" name="matrix" type="data" label="Source file" />
 		<param format="initial_cells_metadata_tsv" name="cells" type="data" label="Source file" />

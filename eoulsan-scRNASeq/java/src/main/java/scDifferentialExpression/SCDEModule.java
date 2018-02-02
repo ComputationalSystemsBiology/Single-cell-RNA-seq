@@ -9,6 +9,7 @@ import fr.ens.biologie.genomique.eoulsan.core.workflow.TaskContextImpl;
 import fr.ens.biologie.genomique.eoulsan.data.*;
 import fr.ens.biologie.genomique.eoulsan.design.Design;
 import fr.ens.biologie.genomique.eoulsan.design.Experiment;
+import fr.ens.biologie.genomique.eoulsan.design.ExperimentMetadata;
 import fr.ens.biologie.genomique.eoulsan.galaxytools.executorinterpreters.DockerExecutorInterpreter;
 import fr.ens.biologie.genomique.eoulsan.galaxytools.executorinterpreters.ExecutorInterpreter;
 
@@ -556,7 +557,17 @@ public class SCDEModule extends AbstractSCDifferentialExpression {
                 // Get Experiment name, columns (model) and comparisons
                 String expID = e.getId();
                 String expName = e.getName();
-                String columns = e.getMetadata().getModel();
+                String columns;
+                ExperimentMetadata md = e.getMetadata();
+
+                if( md.contains("columns") ) {
+                    columns = md.get("columns");
+                } else {
+                    columns = e.getMetadata().getModel();
+                    columns = columns.replace("~", "");
+                    getLogger().warning("In " + getName() + " Exp." + expName + ": columns attribute not found, used formula instead." );
+                }
+
                 List<String> comparisons = Arrays
                     .asList(e.getMetadata().getComparisons().split( ";"));
 

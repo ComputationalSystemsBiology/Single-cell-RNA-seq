@@ -1,7 +1,47 @@
-# List of files
- 	Filtered_cellplot.pdf
-	Raw_Cellplot.pdf
-	Saturation_curve_1.pdf
-	Saturation_curve_2.pdf
-	scqualitychecking.pdf
-
+# List of Files
+basic.model.fits.pdf
+basic.model.fits.png
+clusterPlot.pdf
+clusterPlot.png
+densityAll.pdf
+densityAll.png
+densityFiltered.pdf
+densityFiltered.png
+Filtered_cellplot2.pdf
+Filtered_cellplot2.png
+Filtered_cellplot.pdf
+Filtered_cellplot.png
+FittingPlot.pdf
+FittingPlot.png
+gaussianProbability.pdf
+gaussianProbability.png
+monocleMeanVar.png
+monocle.png
+PCsHeatmap.pdf
+PCsHeatmap.png
+PCSignificativityPlots.pdf
+PCSignificativityPlots.png
+probDrop.pdf
+probDrop.png
+qualityAll.pdf
+qualityAll.png
+qualityFiltered.pdf
+qualityFiltered.png
+Raw_Cellplot2.pdf
+Raw_Cellplot2.png
+Raw_Cellplot.pdf
+Raw_Cellplot.png
+Saturation_curve_1.pdf
+Saturation_curve_1.png
+Saturation_curve_2.pdf
+Saturation_curve_2.png
+Saturation_curve_v21.pdf
+Saturation_curve_v21.png
+Saturation_curve_v22.pdf
+Saturation_curve_v22.png
+ScranMeanVar.pdf
+ScranMeanVar.png
+seuratFittedVariation.pdf
+seuratFittedVariation.png
+silhouettePlot.pdf
+silhouettePlot.png

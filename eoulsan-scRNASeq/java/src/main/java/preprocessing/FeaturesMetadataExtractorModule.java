@@ -301,7 +301,7 @@ public class FeaturesMetadataExtractorModule extends AbstractModule {
                     // get length
                     final int start = anno.getStart();
                     final int end = anno.getEnd();
-                    final int length = end - start;
+                    final int length = end - start + 1;
 
                     // get feature type
                     if (anno.getSeqId().equals(mtTag)) {
