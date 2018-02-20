@@ -1,0 +1,12 @@
+<dataformat>
+    <name>genes_metadata_tsv</name>
+    <description>tsv annotated genes metadata format</description>
+    <prefix>GenesMetadata</prefix>
+    <extensions>
+        <extension default="true">.tsv</extension>
+        <extension>.txt</extension>
+    </extensions>
+    <toolshedgalaxy>
+        <extension>genesMeta</extension>   
+    </toolshedgalaxy>
+</dataformat>

@@ -1,4 +1,4 @@
-preprocessing.CellDataExtractorModule
-preprocessing.FeaturesMetadataExtractorModule
-preprocessing.MatrixCreatorModule
-scDifferentialExpression.SCDEModule
+fr.ens.biologie.genomique.eoulsan.modules.preprocessing.CellDataExtractorModule
+fr.ens.biologie.genomique.eoulsan.modules.preprocessing.FeaturesMetadataExtractorModule
+fr.ens.biologie.genomique.eoulsan.modules.preprocessing.MatrixCreatorModule
+fr.ens.biologie.genomique.eoulsan.modules.scDifferentialExpression.SCDEModule

@@ -1,0 +1,12 @@
+<dataformat>
+  <name>normalized_cells_metadata_tsv</name>
+  <description>tsv normalized cells metadata format</description>
+  <prefix>NormCellsMetadata</prefix>
+  <extensions>
+  	<extension default="true">.tsv</extension>
+  	<extension>.txt</extension>
+  </extensions>
+  <toolshedgalaxy>
+        <extension>cellsNorm</extension>   
+  </toolshedgalaxy>
+</dataformat>

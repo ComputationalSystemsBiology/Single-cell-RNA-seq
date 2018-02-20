@@ -1,0 +1,14 @@
+<dataformat>
+    <name>expression_matrix_tsv</name>
+    <description>tsv unnormalized expression matrix format</description>
+    <prefix>ExpressionMatrix</prefix>
+    <extensions>
+        <extension default="true">.tsv</extension>
+        <extension>.txt</extension>
+	<extension>.tsv.gz</extension>
+    </extensions>
+    <toolshedgalaxy>
+        <extension>matrixIni</extension>   
+    </toolshedgalaxy>
+</dataformat>
+
