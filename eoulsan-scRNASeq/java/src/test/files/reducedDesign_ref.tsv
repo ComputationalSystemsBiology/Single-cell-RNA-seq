@@ -1,0 +1,5 @@
+SampleId	SampleName	Reads	Date	FastqFormat	RepTechGroup	Exp.exp1.Condition	Exp.exp1.Reference
+BRBS100	BRBS100	[Data/BRBS100.R1.fastq.bz2,Data/BRBS100.R2.fastq.bz2]	2016-09-26	fastq-sanger	BRBS100	1	 False
+BRBS114	BRBS114	[Data/BRBS114.R1.fastq.bz2,Data/BRBS114.R2.fastq.bz2]	2016-09-26	fastq-sanger	BRBS114	1	 False
+BRBS122	BRBS122	[Data/BRBS122.R1.fastq.bz2,Data/BRBS122.R2.fastq.bz2]	2016-09-26	fastq-sanger	BRBS122	1	 False
+BRBS99	BRBS99	[Data/BRBS99.R1.fastq.bz2,Data/BRBS99.R2.fastq.bz2]	2016-09-26	fastq-sanger	BRBS99	1	 False
