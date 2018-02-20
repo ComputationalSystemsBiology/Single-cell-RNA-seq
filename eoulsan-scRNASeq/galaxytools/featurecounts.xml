@@ -1,0 +1,13 @@
+<tool id="featurecounts" name="featurecounts">
+	<description></description>
+	<command interpreter="docker" dockerimage="genomicpariscentre/featurecounts:1.5.3">bash -c "featureCounts -a ${annotation} -T 4 -o ${gene_assigned} -R ${format} ${input_sam} 2>${input_sam}.err"</command>
+	<inputs>
+		<param format="annotation_gtf" name="annotation" type="data" label="Source file"/>
+		<param format="mapper_results_sam" name="input_sam" type="data" label="Source file"/>	
+		<param name="format" type="text" value="SAM" label="Output format (BAM or SAM)"/>
+	</inputs>
+	<outputs>
+		<data format="text_txt" name="gene_assigned"/>
+		<!--data format="mapper_results_bam" name="output_bam"/-->
+	</outputs>
+</tool>
