@@ -268,16 +268,14 @@ import static fr.ens.biologie.genomique.eoulsan.core.OutputPortsBuilder.singleOu
      * @throws IOException      if encounters problem with input or output file
      * @throws EoulsanException if features has no Id
      */
-    protected static void extractMetadata(File annotations,
-        final String mtTag, final String spikeTag, final String genomicType,
+    protected static void extractMetadata(File annotations, final String mtTag,
+        final String spikeTag, final String genomicType,
         final String attributeId, final boolean gtfFormat, File outFile)
         throws IOException, EoulsanException {
 
         try (final GFFReader annotationReader = gtfFormat ?
-            new GTFReader(annotations) :
-            new GFFReader(annotations);
-            BufferedWriter out = new BufferedWriter(
-                new FileWriter(outFile))) {
+            new GTFReader(annotations) : new GFFReader(annotations);
+            BufferedWriter out = new BufferedWriter(new FileWriter(outFile))) {
 
             // Initialise gathering variables
             Map<String, SCFeatureMetadata> features = new HashMap<>();
