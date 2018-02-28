@@ -39,7 +39,7 @@ public class TestReducer {
 
     }
 
-    @Test @Ignore
+    @Test
     public void testDesignFormat() {
         File a = new File("src/test/files/design.txt");
 

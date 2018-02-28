@@ -5,6 +5,7 @@ import fr.ens.biologie.genomique.eoulsan.EoulsanRuntimeDebug;
 import fr.ens.biologie.genomique.eoulsan.bio.GFFEntry;
 import fr.ens.biologie.genomique.eoulsan.bio.io.GFFReader;
 
+import fr.ens.biologie.genomique.eoulsan.data.DataFile;
 import org.junit.*;
 import org.junit.rules.TemporaryFolder;
 import org.junit.rules.ExpectedException;
@@ -15,8 +16,8 @@ import java.util.Map;
 
 public class TestParser {
 
-    private final File annotations =
-        new File("src/test/files/testAnnotation.gff");
+    private final DataFile annotations =
+        new DataFile("src/test/files/testAnnotation.gff");
     private final File genesRef = new File("src/test/files/genesTable.tsv");
     private final File transRef = new File("src/test/files/transTable.tsv");
     private final File exonsRef = new File("src/test/files/exonsTable.tsv");
@@ -33,7 +34,7 @@ public class TestParser {
     @Test public void testGetMetadataGene() {
         try {
 
-            GFFReader annotationReader = new GFFReader(annotations);
+            GFFReader annotationReader = new GFFReader(annotations.open());
             SCFeatureMetadata gene = new SCFeatureMetadata();
 
             for (GFFEntry anno : annotationReader) {
@@ -64,7 +65,7 @@ public class TestParser {
     @Test public void testGetMetadataTranscript() {
         try {
 
-            GFFReader annotationReader = new GFFReader(annotations);
+            GFFReader annotationReader = new GFFReader(annotations.open());
             SCFeatureMetadata transcript = new SCFeatureMetadata();
 
 
@@ -98,7 +99,7 @@ public class TestParser {
     @Test public void testGetMetadataExon() {
         try {
 
-            GFFReader annotationReader = new GFFReader(annotations);
+            GFFReader annotationReader = new GFFReader(annotations.open());
             SCFeatureMetadata exon = new SCFeatureMetadata();
 
             for (GFFEntry anno : annotationReader) {
@@ -107,7 +108,7 @@ public class TestParser {
 
                 if (type.equals("exon") && exon.getId().equals("")) {
                     exon = FeaturesMetadataExtractorModule
-                        .getMetadata(anno, false, "Name", "MT", "ERCC");
+                        .getMetadata(anno, false, "exon_id", "MT", "ERCC");
                 }
 
                 if(! exon.getId().equals("")) {
@@ -133,7 +134,7 @@ public class TestParser {
 
         try {
 
-            GFFReader annotationReader = new GFFReader(annotations);
+            GFFReader annotationReader = new GFFReader(annotations.open());
 
             Map<String, SCFeatureMetadata> features = new HashMap();
 
@@ -151,7 +152,7 @@ public class TestParser {
 
             // Reinitialize
             features = new HashMap();
-            annotationReader = new GFFReader(annotations);
+            annotationReader = new GFFReader(annotations.open());
 
             for (GFFEntry anno : annotationReader) {
 

@@ -231,11 +231,15 @@ import static fr.ens.biologie.genomique.eoulsan.core.OutputPortsBuilder.singleOu
                 .getOutputData(GENES_METADATA_TSV, featuresAnnotationData);
 
             // Get annotation file
-            final File annotationFile =
-                featuresAnnotationData.getDataFile().toFile();
+            final DataFile annotationFile =
+                featuresAnnotationData.getDataFile();
 
             // Get final metadata file
             final File metadataFile = geneMetadata.getDataFile().toFile();
+
+            getLogger()
+                .info("Annotation file: " + annotationFile.toFile().toPath());
+            getLogger().info("Output file: " + metadataFile.toPath());
 
             // Write metadata file
             extractMetadata(annotationFile, this.mitochondrialTag,
@@ -268,13 +272,14 @@ import static fr.ens.biologie.genomique.eoulsan.core.OutputPortsBuilder.singleOu
      * @throws IOException      if encounters problem with input or output file
      * @throws EoulsanException if features has no Id
      */
-    protected static void extractMetadata(File annotations, final String mtTag,
-        final String spikeTag, final String genomicType,
+    protected static void extractMetadata(DataFile annotations,
+        final String mtTag, final String spikeTag, final String genomicType,
         final String attributeId, final boolean gtfFormat, File outFile)
         throws IOException, EoulsanException {
 
         try (final GFFReader annotationReader = gtfFormat ?
-            new GTFReader(annotations) : new GFFReader(annotations);
+            new GTFReader(annotations.open()) :
+            new GFFReader(annotations.open());
             BufferedWriter out = new BufferedWriter(new FileWriter(outFile))) {
 
             // Initialise gathering variables
@@ -283,6 +288,7 @@ import static fr.ens.biologie.genomique.eoulsan.core.OutputPortsBuilder.singleOu
 
             //Read annotation file
             for (final GFFEntry anno : annotationReader) {
+
 
                 //Save feature tree if genomic type is not gene ----------------
                 if (!genomicType.toLowerCase().equals("gene")) {
@@ -305,6 +311,7 @@ import static fr.ens.biologie.genomique.eoulsan.core.OutputPortsBuilder.singleOu
             }
 
             // Complete features -----------------------------------------------
+
             for (String id : features.keySet()) {
                 SCFeatureMetadata feature = features.get(id);
                 if (!feature.isGene()) {
@@ -350,19 +357,39 @@ import static fr.ens.biologie.genomique.eoulsan.core.OutputPortsBuilder.singleOu
     private static Map<String, String> saveParentGene(GFFEntry anno,
         Map<String, String> map, boolean gtfFormat) {
 
+        final String type = anno.getType();
+
         // GTF case
-        if (gtfFormat && anno.getType().matches("(.)*transcript(.)*")) {
+        if (gtfFormat && (type.matches("(.)*transcript(.)*") || type
+            .matches("(.)*RNA"))) {
+
             map.put(anno.getAttributeValue("transcript_id"),
                 anno.getAttributeValue("gene_id"));
             return map;
         }
 
         // GFF case
-        if (anno.getType().matches("(.)*transcript(.)*")) {
-            map.put(anno.getAttributeValue("ID"),
-                anno.getAttributeValue("Parent"));
+        if (type.matches("(.)*transcript(.)*") || type.matches("(.)*RNA")) {
+
+            String transcript = anno.getAttributeValue("ID");
+            String gene = anno.getAttributeValue("Parent");
+
+            // Treat ID=transcript:ID
+            if (!(transcript == null) && transcript.contains(":")) {
+                transcript = transcript.split(":")[1];
+            }
+
+            // Treat Parent=gene:ID
+            if (!(gene == null) && gene.contains(":")) {
+                gene = gene.split(":")[1];
+            }
+
+            map.put(transcript, gene);
             return map;
         }
+
+
+
         // Default
         return map;
     }
@@ -391,6 +418,8 @@ import static fr.ens.biologie.genomique.eoulsan.core.OutputPortsBuilder.singleOu
                 "Feature " + genomicType + " does not contain a " + attributeId
                     + " attribute");
         }
+
+        getLogger().info("Treating feature " + featureId);
 
         // Get position information
         final int start = anno.getStart();
@@ -423,9 +452,12 @@ import static fr.ens.biologie.genomique.eoulsan.core.OutputPortsBuilder.singleOu
                 gtfFormat ? anno.getAttributeValue("transcript_id") :
                     anno.getAttributeValue("Parent");
 
+            if (transcript == null)
+                return feature;
+
             // Treat case were Parent=transcriptId:ID
             if (transcript.contains(":")) {
-                transcript = transcript.split(":")[2];
+                transcript = transcript.split(":")[1];
             }
 
             feature.setTranscript(transcript);
