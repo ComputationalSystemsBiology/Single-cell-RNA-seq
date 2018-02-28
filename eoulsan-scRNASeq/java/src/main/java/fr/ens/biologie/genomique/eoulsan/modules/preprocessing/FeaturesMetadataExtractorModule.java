@@ -289,7 +289,6 @@ import static fr.ens.biologie.genomique.eoulsan.core.OutputPortsBuilder.singleOu
             //Read annotation file
             for (final GFFEntry anno : annotationReader) {
 
-
                 //Save feature tree if genomic type is not gene ----------------
                 if (!genomicType.toLowerCase().equals("gene")) {
                     parents = saveParentGene(anno, parents, gtfFormat);
@@ -358,21 +357,21 @@ import static fr.ens.biologie.genomique.eoulsan.core.OutputPortsBuilder.singleOu
         Map<String, String> map, boolean gtfFormat) {
 
         final String type = anno.getType();
+        String transID = "ID";
+        String geneID = "Parent";
 
         // GTF case
-        if (gtfFormat && (type.matches("(.)*transcript(.)*") || type
-            .matches("(.)*RNA"))) {
-
-            map.put(anno.getAttributeValue("transcript_id"),
-                anno.getAttributeValue("gene_id"));
-            return map;
+        if (gtfFormat) {
+            transID = "transcript_id";
+            geneID = "gene_id";
         }
 
-        // GFF case
-        if (type.matches("(.)*transcript(.)*") || type.matches("(.)*RNA")) {
+        // Selecting transcripts
+        if (type.matches("(.)*transcript(.)*") || type.matches("(.)*RNA")
+            || type.matches("([VDJC]_)?gene_segment")) {
 
-            String transcript = anno.getAttributeValue("ID");
-            String gene = anno.getAttributeValue("Parent");
+            String transcript = anno.getAttributeValue(transID);
+            String gene = anno.getAttributeValue(geneID);
 
             // Treat ID=transcript:ID
             if (!(transcript == null) && transcript.contains(":")) {
@@ -387,8 +386,6 @@ import static fr.ens.biologie.genomique.eoulsan.core.OutputPortsBuilder.singleOu
             map.put(transcript, gene);
             return map;
         }
-
-
 
         // Default
         return map;
