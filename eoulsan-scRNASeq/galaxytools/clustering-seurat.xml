@@ -31,8 +31,8 @@
 		
 		<!-- Clustering Options -->
 		<param name="resolution" type="float" min="0.2" value="0.8" label="Resolution parameter for clustering"/>
-		<param name="k" type="int" value="30" min="3" label="Number of nearest neighbours to consider"/>
-		<param name="k_scale" type="int" value="25"  label="Granularity option for k"/>
+		<param name="k" type="integer" value="30" min="3" label="Number of nearest neighbours to consider"/>
+		<param name="k_scale" type="integer" value="25"  label="Granularity option for k"/>
 		<param name="algorithm" type="text" value="SLM" label="Which clustering algorithm to use : must be one of Louvain, Louvain.multilevel, or SLM"/>
 		<param name="sparse" type="text" value="False" label="Boolean weither to use sparse matrix to store graph (recommanded for 10X data)"/>
 	</inputs>
