@@ -1,0 +1,16 @@
+<tool id="fc" name="fc">
+	<description></description>
+	<command interpreter="docker" dockerimage="genomicpariscentre/featurecounts:1.5.3">bash -c "featureCounts -R SAM $input -a $annotation -T 4 -o $genes"; output=`dirname $genes`/`basename $input`.featureCounts.sam; echo $output; echo $input; echo $genes; echo $annotation</command>
+	<!--command>bash -c "featureCounts -a $annotation -R SAM $input -T 4 -o $genes; output=(echo `dirname $genes`/`basename $input`).featureCounts.sam"</command-->
+	<!--command interpreter="docker" dockerimage="genomicpariscentre/featurecounts:1.5.3">bash -c "featureCounts -a $annotation -R SAM $input -T 4 -o $genes; mv ${input}.featureCounts.sam $output"</command-->
+
+	<inputs>
+		<param format="mapper_results_sam" name="input" type="data" label="Source file"/>
+		<param format="annotation_gtf" name="annotation" type="data" label="Source file"/>
+		<!--param name="format" type="text" value="SAM" label="Output format (BAM or SAM)"/-->
+	</inputs>
+	<outputs>
+		<data format="text_txt" name="genes"/>
+		<data format="mapper_results_sam" name="output"/>
+	</outputs>
+</tool>

@@ -1,0 +1,15 @@
+<dataformat>
+  <name>r_object_rds</name>
+  <description>Store R object .Rds</description>
+  <alias>r_object_rds</alias>
+  <prefix>r_object</prefix>
+  <onefileperanalysis>true</onefileperanalysis>
+  <samplemetadatakey>r_object_rds</samplemetadatakey>
+<extensions>
+        <extension default="true">.Rds</extension>
+  </extensions>
+
+  <toolshedgalaxy>
+        <extension>Rds</extension>
+  </toolshedgalaxy>
+</dataformat>
