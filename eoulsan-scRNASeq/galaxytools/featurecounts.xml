@@ -6,10 +6,9 @@
 	<inputs>
 		<param format="annotation_gtf" name="annotation" type="data" label="Source file"/>
 		<param format="mapper_results_sam" name="input" type="data" label="Source file"/>	
-		<!--param name="format" type="text" value="SAM" label="Output format (BAM or SAM)"/-->
 	</inputs>
 	<outputs>
 		<data format="text_txt" name="genes"/>
-		<!--data format="mapper_results_sam" name="output"/-->
+		<data format="mapper_results_sam" name="output"/>
 	</outputs>
 </tool>
