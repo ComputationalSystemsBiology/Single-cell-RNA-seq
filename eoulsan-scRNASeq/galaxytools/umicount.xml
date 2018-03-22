@@ -1,6 +1,6 @@
 <tool id="umicount" name="umicount">        
 	<description>test</description>
-        <command interpreter="docker" dockerimage="genomicpariscentre/umi-tools:0.5.1">bash -c "umi_tools count --per-gene --gene-tag=XT --per-cell -I input -S $output 2>${output}.err"</command>
+        <command interpreter="docker" dockerimage="genomicpariscentre/umi-tools:0.5.1">bash -c "umi_tools count --per-gene --gene-tag=XT --per-cell -I $input -S $output 2>${output}.err"</command>
         <inputs>
                 <param format="mapper_results_bam" name="input" type="data" label="Source file"/>
                 <!--param name="wide" type="text" value="False" label="Sparse or wide matrix (default= sparse)"/-->
