@@ -1,8 +1,8 @@
-<tool id="umi_count" name="umi_count">
+<tool id="umicount" name="umicount">
 	<description>test</description>
-	<command interpreter="docker" dockerimage="genomicpariscentre/umi-tools:0.5.1">bash -c "umi_tools count --per-gene --gene-tag=XT --per-cell -i -I ${sam_input} -S ${output} 2>${output}.err"</command>
+	<command interpreter="docker" dockerimage="genomicpariscentre/umi-tools:0.5.3">bash -c "umi_tools count --per-gene --gene-tag=XT --per-cell -i -I ${bam_input} -S ${output} 2>${output}.err"</command>
 	<inputs>
-		<param format="mapper_results_sam" name="sam_input" type="data" label="Source file"/>
+		<param format="mapper_results_bam" name="bam_input" type="data" label="Source file"/>
 		<!--param format="mapper_results_bam" name="bam_input" type="data" label="Source file"/-->	
 		<!--param  name="subset" type="float" value="1"  label="Only consider a fraction of the reads, chosen at random. This is useful for doing saturation analyses. (float, [0-1])"/-->
 		<!--param  name="chrom" type="text" value="False"  label="Only consider a single chromosome. This is useful for debugging purposes."/-->
