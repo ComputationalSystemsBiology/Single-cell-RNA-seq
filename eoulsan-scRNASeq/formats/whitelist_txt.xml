@@ -1,0 +1,15 @@
+<dataformat>
+  <name>whitelist_txt</name>
+  <description>Whitelist of correct cell barcodes (for UMI based protocols)</description>
+  <alias>whitelist</alias>
+  <prefix>whitelist</prefix>
+  <onefileperanalysis>true</onefileperanalysis>
+  <samplemetadatakey>whitelist_txt</samplemetadatakey>
+<extensions>
+  	<extension default="true">.txt</extension>
+  </extensions>
+
+  <toolshedgalaxy>
+  	<extension>text</extension> 	
+  </toolshedgalaxy>
+</dataformat>

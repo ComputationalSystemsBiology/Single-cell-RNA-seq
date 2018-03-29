@@ -5,11 +5,10 @@
 		<param format="fastq" name="inputr1" type="data" label="Source file"/>
 		<param format="fastq" name="inputr2" type="data" label="Source file"/>
 		<param name="bc_pattern" type="text" value="CCCCCCCCCCCCCCCCNNNNNNNNNN" label="Barcode pattern (identifies bases position) - N = UMI position (required) ; C = cell barcode position (optional) ; X = sample position (optional)"/>
-		<!--param name="set_cell_number" type="integer" value="0" label="Explicity set the number of cell barcodes which should be accepted - Usage : set-cell-number=1000 - Default value 0 means no set cell number"/-->
-		<!--param name="expect_cells" type="integer" value="0" label="Upper limit estimate for the number of inputted cells - Usage : expect-cells=1000 - Default value : 0 means no expected cells number"/--> 
-		<!--param name="R1" type="text" label="Barcodes and umi fastq"/-->
+		<param name="set_cell_number" type="integer" value="0" label="Explicity set the number of cell barcodes which should be accepted - Usage : set-cell-number=1000 - Default value 0 means no set cell number"/>
+		<param name="expect_cells" type="integer" value="0" label="Upper limit estimate for the number of inputted cells - Usage : expect-cells=1000 - Default value : 0 means no expected cells number"/> 
 	</inputs>
 	<outputs>
-		<data format="whitelist_umi" name="output"/>
+		<data format="whitelist_txt" name="output"/>
 	</outputs>
 </tool>

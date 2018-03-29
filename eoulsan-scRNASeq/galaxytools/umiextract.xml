@@ -1,0 +1,15 @@
+<tool id="umiextract" name="umiextract">
+	<description>Extract barcodes and UMIs and add to read names - more info : "umi_tools extract -help"</description>
+	<command interpreter="docker" dockerimage="genomicpariscentre/umi-tools:0.5.3">bash -c "umi_tools extract --stdin ${inputr1} --stdout \$( basename ${outputread2} | sed 's/_outputread2_/_outputread1_/' ) --read2-in ${inputr2} --read2-out=${outputread2} --whitelist=${whitelist_umi}  --bc-pattern=${bc_pattern} --filter-cell-barcode  --quality-filter-threshold=${quality_filter_threshold} --quality-filter-mask=${quality_filter_mask} --error-correct-cell 2> ${outputread2}.err"</command>
+	<inputs>
+                <param format="fastq" name="inputr1" type="data" label="Source file"/>
+                <param format="fastq" name="inputr2" type="data" label="Source file"/>
+                <param format="whitelist_txt" name="whitelist" type="data" label="Source file"/>
+                <param name="bc_pattern" type="text" value="CCCCCCCCCCCCCCCCNNNNNNNNNN" label="Barcode pattern (identifies bases position) - N = UMI position (required) ; C = cell barcode position (optional) ; X = sample position (optional)"/>
+                <param name="qft" type="integer" value="30" label="Remove reads where any UMI base quality score falls below this threshold - Usage : quality-filter-threshold=30"/>
+                <param name="encoding" type="text" value="phred33" label="Base score encoding - Usage : quality-encoding='phred33'"/>
+ 	</inputs>
+	<outputs>
+		<data format="fastq" name="outputread2"/>
+	</outputs>
+</tool>
