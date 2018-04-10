@@ -1,0 +1,135 @@
+<analysis>
+        <formatversion>1.0</formatversion>
+        <name>10xGenomics data demo</name>
+        <description>Demo of Eoulsan for 10xGenomics data (single-cell RNA seq)</description>
+        <author>Lehmann</author>
+        <steps> 
+		<!-- FastQC of filtered reads -->
+         	<step id="step0fastqc" skip="false">
+                 	<module>fastqc</module>
+         	</step>
+        	<!-- Filter reads: remove low quality reads -->
+        	<step id="step1filterreads"  skip="false" discardoutput="asap">
+                <module>filterreads</module>
+                	<parameters>
+            			<parameter>
+                			<name>illuminaid</name>
+                			<value></value>
+            			</parameter>
+                        	<parameter>
+                                	<name>quality.threshold</name>
+                                	<value>30</value>
+                        	</parameter>
+              		</parameters>
+        	</step>
+		<!-- Extract cell barcodes and identify the most likely true barcodes using the 'knee' method. -->
+		<step id="step2whitelist" skip="false" requiredprocs="4">
+                                <module>umiwhitelist</module>
+                                <parameters></parameters>
+                </step>
+		<!-- Extract UMI barcode from a read and add it to the read name, leaving any sample barcode in place.  -->
+                <step id="step3extract" dataproduct="match" skip="false">
+                                <module>umiextract</module>
+                                <parameters></parameters>
+                </step>
+		<!-- Create STAR index -->
+		<!-- This step may be skipped if needed (long time running). In this case, the step "mapreads" will automatically generate an index. -->
+      	   	<!--step id="step4createstarindex" skip="true" requiredprocs="8">
+                	<module>starindexgenerator</module>
+                 	<parameters-->
+                         	<!-- The overhang value must be greater than the length of the reads -->
+                        	<!--parameter>
+                                	<name>overhang</name>
+                                	<value>100</value>
+                        	</parameter>
+                        	<parameter>
+                                	<name>use.gtf.file</name>
+                                	<value>true</value>
+                        	</parameter>
+                         	<parameter>
+                                 	<name>gtf.feature.exon</name>
+                                 	<value>exon</value>
+                         	</parameter>
+                         	<parameter>
+                                 	<name>gtf.tag.exon.parent.transcript</name>
+                                	<value>Parent</value>
+                         	</parameter>
+                	 </parameters>
+         	</step-->
+         	<!-- Map reads -->
+         	<step id="step4mapreads" skip="false" discardoutput="asap" requiredprocs="8">
+                	<module>mapreads</module>
+                 	<parameters>
+                        	 <parameter>
+                                	<name>mapper</name>
+                                 	<value>star</value>
+                         	</parameter>
+                         	<parameter>
+                                	<name>mapper.version</name>
+                                 	<value>2.4.0k</value>
+                         	</parameter>
+                         	<parameter>
+                                 	<name>mapper.arguments</name>
+                                	<value>--outSAMunmapped Within</value>
+                         	</parameter>
+                 	</parameters>
+         	</step>
+		<!-- MutliQC of filtered and mapped reads -->
+        	<step id="multiqc" skip="false">
+                	<module>multiqc</module>
+                	<parameters>
+                        	<parameter>
+                               		<name>reports</name>
+                               		<value>fastqc,mapreads</value>
+                        	</parameter>
+                        	<parameter>
+                               		<name>use.docker</name>
+                               		<value>false</value>
+                        	</parameter>
+                	</parameters>
+        	</step> 
+		<!-- Quality filter of SAM files -->
+                <step id="step5filtersam"  skip="false">
+                        <module>filtersam</module>
+                        <parameters>
+                                <parameter>
+                                        <name>removeunmapped</name>
+                                        <value>true</value>
+                                </parameter>
+                                <parameter>
+                                        <name>removemultimatches</name>
+                                        <value>true</value>
+                                </parameter>
+                        </parameters>
+                </step>
+		<!-- Assign reads to genes -->
+                <step id="step6featurecounts" requiredprocs="8" skip="false">
+                        <module>featurecounts</module>
+                        <inputs>
+                                <input>
+                                        <port>input</port>
+                                        <fromstep>step5filtersam</fromstep>
+                                        <fromport>output</fromport>
+                                </input>
+                        </inputs>        
+                        <parameters></parameters>
+                </step>
+		<!-- Convert SAM to BAM -->
+                <step id="step7samtobam" skip="false">
+                        <module>sam2bam</module>
+                           <inputs>
+                                <input>
+                                        <port>input</port>
+                                        <fromstep>step6featurecounts</fromstep>
+                                        <fromport>outputsam</fromport>
+                                </input>
+                        </inputs>
+                        <parameters></parameters>
+                </step>
+		<!-- Count UMIs per gene per cell -->                        
+                <step id="step8umicounts" skip="false">
+                        <module>umicount</module>
+                        <parameters></parameters>
+                </step>
+        </steps> 
+</analysis>
