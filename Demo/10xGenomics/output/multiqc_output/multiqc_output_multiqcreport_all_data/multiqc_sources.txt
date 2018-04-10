@@ -1,0 +1,4 @@
+Module	Section	Sample Name	Source
+FastQC	all_sections	hgmm_100_R1	/scratch/8a89b01a-145b-4d18-83b7-c3dfe0d8e63e/hgmm100R1_read0_fastqc.zip
+FastQC	all_sections	hgmm_100_R2	/scratch/8a89b01a-145b-4d18-83b7-c3dfe0d8e63e/hgmm100R1_read1_fastqc.zip
+STAR	SummaryLog	hgmm100R1	/scratch/8a89b01a-145b-4d18-83b7-c3dfe0d8e63e/hgmm100R1Log.final.out

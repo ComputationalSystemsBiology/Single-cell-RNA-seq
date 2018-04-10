@@ -1,0 +1,4 @@
+Sample	STAR_uniquely_mapped-1	STAR_uniquely_mapped_percent-1	FastQC_percent_duplicates-1	FastQC_percent_gc-1	FastQC_avg_sequence_length-1	FastQC_total_sequences-1	FastQC_percent_fails-1
+hgmm100R1	3000190.0	61.75					
+hgmm_100_R1			30.2999762843	50.0	26.0	7197662.0	16.6666666667
+hgmm_100_R2			53.6838930564	48.0	98.0	7197662.0	25.0
