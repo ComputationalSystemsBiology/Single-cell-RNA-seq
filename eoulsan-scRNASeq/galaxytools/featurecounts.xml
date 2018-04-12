@@ -1,6 +1,6 @@
 <tool id="featurecounts" name="featurecounts">
 	<description></description>
-	<command> bash -c "featureCounts -a ${annotation} -T ${THREADS} -o ${geneassigned} -R ${format} ${input} > ${geneassigned}.out  2> ${geneassigned}.err ; mv \$(basename ${input} ).featureCounts.sam $outputsam; mv \$(basename ${geneassigned} ).summary $summary; echo $summary"</command>
+	<command interpreter="docker" dockerimage="genomicpariscentre/subread:1.6.1"> bash -c "featureCounts -a ${annotation} -T ${THREADS} -o ${geneassigned} -R ${format} ${input} > ${geneassigned}.out  2> ${geneassigned}.err ; mv \$(basename ${input} ).featureCounts.sam $outputsam; mv \$(basename ${geneassigned} ).summary $summary; echo $summary"</command>
 	<inputs>
 		<param format="mapper_results_sam" name="input" type="data" label="Source file"/>
 		<param format="annotation_gtf" name="annotation" type="data" label="Source file"/>
