@@ -1,11 +1,11 @@
 # Tmp directory (if /tmp does not offer enough disk space)
-main.tmp.dir=/scratch
+main.tmp.dir=/tmp
 
 # Paths to genome files
-main.gff.storage.path=/import/kg_csbgn01/genomes/eoulsan/genome_annotations
-main.genome.desc.storage.path=/import/kg_csbgn01/genomes/eoulsan/genome_descriptions
-main.genome.mapper.index.storage.path=/import/kg_csbgn01/genomes/eoulsan/genome_indexes
-main.genome.storage.path=/import/kg_csbgn01/genomes/eoulsan/genomes
+main.gff.storage.path=/genome_annotations/path/
+main.genome.desc.storage.path=/genome_descriptions/path/
+main.genome.mapper.index.storage.path=/genome_indexes/path/
+main.genome.storage.path=/genomes/reference/path/
 
 # Specify these options when using Docker (by default)
 main.docker.uri=unix:///var/run/docker.sock
@@ -15,8 +15,8 @@ main.docker.mount.nfs.roots=true
 main.local.threads=10
 
 # Paths to galaxytools and formats: NOT TO BE CHANGED (except for development purposes)  
-main.format.path=/import/kg_csbws03/lehmann/Eoulsan/Single-cell-RNA-seq/eoulsan-scRNASeq/formats
-main.galaxy.tool.path=/import/kg_csbws03/lehmann/Eoulsan/Single-cell-RNA-seq/eoulsan-scRNASeq/galaxytools
+main.format.path=Single-cell-RNA-seq/eoulsan-scRNASeq/formats
+main.galaxy.tool.path=Single-cell-RNA-seq/eoulsan-scRNASeq/galaxytools
 
 # Debug options
 main.debug=true

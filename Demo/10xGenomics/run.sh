@@ -27,14 +27,14 @@ mkdir data
 mv hgmm_100_R?.fastq.gz data/
 
 # INPUTS 
-gtf=/import/kg_csbgn01/genomes/homo_sapiens/hg19/annotation/hg19ens91.gtf.bz2
-gff=/import/kg_csbgn01/genomes/homo_sapiens/hg19/annotation/hg19ens91.gff.bz2
-genomeRef=/import/kg_csbgn01/genomes/homo_sapiens/hg19/fasta/hg19ens91.fasta.bz2
+gtf=path/to/gtf
+gff=path/to/gff
+genomeRef=path/to/genome/ref
 
-data=../data/*
+data=path/to/fastq/*
 
-configuration=../configuration.txt
-workflow=../workflow.xml
+configuration=path/to/configuration.txt
+workflow=path/to/workflow.xml
 
 # CREATE DESIGN
 eoulsan createdesign -p $data $genomeRef $gff $gtf

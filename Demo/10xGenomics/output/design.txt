@@ -1,0 +1,12 @@
+[Header]
+DesignFormatVersion=2
+GenomeFile=/path/to/fasta
+GffFile=/path/to/gff
+GtfFile=/path/to/gtf
+
+[Experiments]
+Exp.exp1.name=Experiment1
+
+[Columns]
+SampleId	SampleName	Reads	Date	FastqFormat	RepTechGroup	Exp.exp1.Condition	Exp.exp1.Reference	UUID
+hgmm100R1	hgmm_100_R1	[data/hgmm_100_R1.fastq.gz,data/hgmm_100_R2.fastq.gz]	2018-04-10	fastq-sanger	hgmm_100_R1	hgmm_100_R1	false	916d9b59-1685-4708-9e10-d4274fd7efd4
