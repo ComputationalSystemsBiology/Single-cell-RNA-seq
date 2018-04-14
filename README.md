@@ -24,23 +24,19 @@ curl http://outils.genomique.biologie.ens.fr/eoulsan/eoulsan-docker-installer.sh
 ### Create design file
 
 ```{bash, eval=FALSE}
-genome=/import/kg_csbgn01/genomes/homo_sapiens/hg38/fasta/hg38.fasta
-annotation=/import/kg_csbgn01/genomes/homo_sapiens/hg38/annotation/ensembl_Homo_sapiens.GRCh38.84.gtf
+genome=/path/to/fasta
+gtf=/path/to/gtf
+gff=/path/to/gff
+data=/path/to/fastq
 
-eoulsan createdesign /import/kg_csbws03/lehmann/Data/pDC_Soumelis_2017/step1_bcl2fastq/T*R2.fastq $genome $annotation
+eoulsan createdesign $data $genome $gtf $gff
+
+# if paired-end reads (e.g. for 10xGenomics)
+eoulsan createdesign -p $data $genome $gtf $gff
 ```
 
 ### Customize your analysis with the workflow file
 
-```{bash, eval=FALSE}
-workflow=/import/kg_csbws01/lehmann/Eoulsan/pDC-7TP/workflow-10000cells.xml
-```
-
 ### Run Eoulsan
-
-```{bash, eval=FALSE}
-screen
-eoulsan.sh -conf eoulsan_conf exec workflow-10000cells.xml design.txt
-```
 
 ## Help
