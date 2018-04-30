@@ -1,11 +1,11 @@
-# Tmp directory (if /tmp does not offer enough disk space)
+# Tmp directory (may be changed if /tmp does not provide enough disk space)
 main.tmp.dir=/tmp
 
 # Paths to genome files
 main.gff.storage.path=/genome_annotations/path/
 main.genome.desc.storage.path=/genome_descriptions/path/
 main.genome.mapper.index.storage.path=/genome_indexes/path/
-main.genome.storage.path=/genomes/reference/path/
+main.genome.storage.path=/genomes_references/path/
 
 # Specify these options when using Docker (by default)
 main.docker.uri=unix:///var/run/docker.sock
