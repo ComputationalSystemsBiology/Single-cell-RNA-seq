@@ -4,7 +4,7 @@
         <description>Demo of Eoulsan for 10xGenomics data (single-cell RNA seq)</description>
         <author>Lehmann</author>
         <steps> 
-		<!-- FastQC of filtered reads -->
+		<!-- FastQC of non filtered reads -->
          	<step id="step1fastqc" skip="false">
                  	<module>fastqc</module>
          	</step>
