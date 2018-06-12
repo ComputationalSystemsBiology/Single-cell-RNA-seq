@@ -23,22 +23,22 @@
               		</parameters>
         	</step>
 		<!-- FastQC of filtered reads -->
-                <step id="step3fastqc" skip="false">
+                <step id="step1bisfastqc" skip="false">
                         <module>fastqc</module>
                 </step>
 		<!-- Extract cell barcodes and identify the most likely true barcodes using the 'knee' method. -->
-		<step id="step4whitelist" skip="false" requiredprocs="8">
+		<step id="step3whitelist" skip="false" requiredprocs="8">
                                 <module>umiwhitelist</module>
                                 <parameters></parameters>
                 </step>
 		<!-- Extract UMI barcode from a read and add it to the read name, leaving any sample barcode in place.  -->
-                <step id="step5extract" dataproduct="match" skip="false">
+                <step id="step4extract" dataproduct="match" skip="false">
                                 <module>umiextract</module>
                                 <parameters></parameters>
                 </step>
 		<!-- Create STAR index -->
 		<!-- This step may be skipped if needed (long time running). In this case, the step "mapreads" will automatically generate an index. -->
-      	   	<step id="step6createstarindex" skip="false" requiredprocs="8">
+      	   	<step id="step5createstarindex" skip="false" requiredprocs="8">
                 	<module>starindexgenerator</module>
                  	<parameters>
                          	<!-- The overhang value must be greater than the length of the reads -->
@@ -61,7 +61,7 @@
                 	 </parameters>
          	</step>
          	<!-- Map reads -->
-         	<step id="step7mapreads" skip="false" discardoutput="asap" requiredprocs="8">
+         	<step id="step6mapreads" skip="false" discardoutput="asap" requiredprocs="8">
                 	<module>mapreads</module>
                  	<parameters>
                         	 <parameter>
@@ -75,7 +75,7 @@
                  	</parameters>
          	</step>
 		<!-- MutliQC of filtered and mapped reads -->
-        	<step id="step8multiqc" skip="false">
+        	<step id="step7multiqc" skip="false">
                 	<module>multiqc</module>
                 	<parameters>
                         	<parameter>
@@ -89,7 +89,7 @@
                 	</parameters>
         	</step> 
 		<!-- Quality filter of SAM files -->
-                <step id="step9filtersam"  skip="false">
+                <step id="step8filtersam"  skip="false">
                         <module>filtersam</module>
                         <parameters>
                                 <parameter>
@@ -103,7 +103,7 @@
                         </parameters>
                 </step>
 		<!-- Assign reads to genes -->
-                <step id="step10featurecounts" requiredprocs="8" skip="false">
+                <step id="step9featurecounts" requiredprocs="8" skip="false">
                         <module>featurecounts</module>
                         <inputs>
                                 <input>
@@ -115,7 +115,7 @@
                         <parameters></parameters>
                 </step>
 		<!-- Convert SAM to BAM -->
-                <step id="step11samtobam" skip="false">
+                <step id="step10samtobam" skip="false">
                         <module>sam2bam</module>
                            <inputs>
                                 <input>
@@ -127,7 +127,7 @@
                         <parameters></parameters>
                 </step>
 		<!-- Count UMIs per gene per cell -->                        
-                <step id="step12umicounts" skip="false">
+                <step id="step11umicounts" skip="false">
                         <module>umicount</module>
                         <parameters></parameters>
                 </step>
