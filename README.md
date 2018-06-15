@@ -1,7 +1,7 @@
 # Automatic processing of single-cell RNA seq data analysis
 
 This repository contains tools and workflows for the analysis of single cell RNA-Seq data. Currently there are 2 workflows available:
-- [SmartSeq2](https://www.nature.com/articles/nmeth.2639) protocol
+- [Smart-Seq2](https://www.nature.com/articles/nmeth.2639) protocol
 - [10x Genomics](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5241818/) protocol.
 
 These workflows are based on the workflow manager [Eoulsan](http://www.outils.genomique.biologie.ens.fr/eoulsan/index.html), which is a framework dedicated to high throughput sequencing data analysis on distributed computers. 
