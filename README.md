@@ -9,8 +9,8 @@ These workflows are based on the workflow manager [Eoulsan](http://www.outils.ge
 Here is a quick access to the main pages:
 - [Install Eoulsan](http://outils.genomique.biologie.ens.fr/eoulsan)
 - New user's [tutorials](https://github.com/GenomicParisCentre/eoulsan/wiki):
-  - [Single cell RNA-seq (SmartSeq2)](https://github.com/GenomicParisCentre/eoulsan/wiki/SmartSeq2)
-  - [Single cell RNA-seq (10x Genomics)](https://github.com/GenomicParisCentre/eoulsan/wiki/10XGenomics)
+  - [Single cell RNA-seq (SmartSeq2)](https://github.com/GenomicParisCentre/eoulsan/wiki/Smart-Seq2-scRNA-seq-tutorial)
+  - [Single cell RNA-seq (10x Genomics)](https://github.com/GenomicParisCentre/eoulsan/wiki/10x-Genomics-scRNA-seq-tutorial)
 - [Reference website](http://outils.genomique.biologie.ens.fr/eoulsan/) to get the complete documentation.
 - [Developers wiki](https://github.com/GenomicParisCentre/eoulsan/wiki/HomeDeveloper) to get information on how to contribute to the Eoulsan project and develop plug-ins.
 
