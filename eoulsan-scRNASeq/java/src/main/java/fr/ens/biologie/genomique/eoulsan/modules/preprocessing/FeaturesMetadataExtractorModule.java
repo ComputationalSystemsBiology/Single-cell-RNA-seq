@@ -4,9 +4,7 @@ import static fr.ens.biologie.genomique.eoulsan.EoulsanLogger.getLogger;
 import static fr.ens.biologie.genomique.eoulsan.core.Modules.renamedParameter;
 
 import java.io.*;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import fr.ens.biologie.genomique.eoulsan.EoulsanException;
 import fr.ens.biologie.genomique.eoulsan.Globals;
@@ -452,11 +450,22 @@ import static fr.ens.biologie.genomique.eoulsan.core.OutputPortsBuilder.singleOu
             if (transcript == null)
                 return feature;
 
-            // Treat case were Parent=transcriptId:ID
-            if (transcript.contains(":")) {
-                transcript = transcript.split(":")[1];
+            if (transcript. contains(",")) {
+                List<String> transcripts = Arrays.asList(transcript.split(",", 0));
+                List<String> newTranscripts = new ArrayList<>();
+                for(String trans : transcripts) {
+                    if (trans.contains(":")) {
+                        trans = trans.split(":")[1];
+                        newTranscripts.add(trans);
+                    }
+                }
+                transcript = String.join(",", newTranscripts);
             }
-
+            else {
+                if (transcript.contains(":")) {
+                    transcript = transcript.split(":")[1];
+                }
+            }
             feature.setTranscript(transcript);
         }
 
@@ -476,26 +485,58 @@ import static fr.ens.biologie.genomique.eoulsan.core.OutputPortsBuilder.singleOu
         // Extract Id
         final String id = feature.getId();
 
-        // If Id is not known put feature
-        if (!features.containsKey(id)) {
+        // If features as a merged ID, separate and treat each one separately
+        if(id.contains(",")) {
+            List<String> ids = Arrays.asList(id.split(",", 0));
 
-            features.put(id, feature);
+            for(String id : ids) {
+                // If Id is not known put feature
+                if (!features.containsKey(id)) {
 
-            // Else update feature info
-        } else {
+                    features.put(id, feature);
 
-            SCFeatureMetadata oldFeature = features.get(id);
-            final int oldLength = oldFeature.getLength();
-            final int oldStart = oldFeature.getStart();
-            final int oldEnd = oldFeature.getEnd();
+                    // Else update feature info
+                } else {
 
-            oldFeature.setLength(oldLength + feature.getLength());
+                    SCFeatureMetadata oldFeature = features.get(id);
+                    final int oldLength = oldFeature.getLength();
+                    final int oldStart = oldFeature.getStart();
+                    final int oldEnd = oldFeature.getEnd();
 
-            if (oldStart > feature.getStart())
-                oldFeature.setStart(oldStart);
-            if (oldEnd > feature.getEnd())
-                oldFeature.setEnd(oldEnd);
+                    oldFeature.setLength(oldLength + feature.getLength());
 
+                    if (oldStart > feature.getStart())
+                        oldFeature.setStart(oldStart);
+                    if (oldEnd > feature.getEnd())
+                        oldFeature.setEnd(oldEnd);
+
+                }
+            }
+
+         // Else treat only the existing ID
+        }else {
+
+            // If Id is not known put feature
+            if (!features.containsKey(id)) {
+
+                features.put(id, feature);
+
+                // Else update feature info
+            } else {
+
+                SCFeatureMetadata oldFeature = features.get(id);
+                final int oldLength = oldFeature.getLength();
+                final int oldStart = oldFeature.getStart();
+                final int oldEnd = oldFeature.getEnd();
+
+                oldFeature.setLength(oldLength + feature.getLength());
+
+                if (oldStart > feature.getStart())
+                    oldFeature.setStart(oldStart);
+                if (oldEnd > feature.getEnd())
+                    oldFeature.setEnd(oldEnd);
+
+            }
         }
     }
 
