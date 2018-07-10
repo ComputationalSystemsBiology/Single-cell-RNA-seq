@@ -1,0 +1,25 @@
+# Tmp directory (may be changed if /tmp does not provide enough disk space)
+main.tmp.dir=/tmp
+
+# Paths to genome files
+main.gff.storage.path=/genome_annotations/path/
+main.genome.desc.storage.path=/genome_descriptions/path/
+main.genome.mapper.index.storage.path=/genome_indexes/path/
+main.genome.storage.path=/genomes_references/path/
+
+# Specify these options when using Docker (by default)
+main.docker.uri=unix:///var/run/docker.sock
+main.docker.mount.nfs.roots=true
+ 
+# Maximim number of threads used by Eoulsan
+main.local.threads=10
+
+# Paths to galaxytools and formats: NOT TO BE CHANGED (except for development purposes)  
+main.format.path=Single-cell-RNA-seq/eoulsan-scRNASeq/formats
+main.galaxy.tool.path=Single-cell-RNA-seq/eoulsan-scRNASeq/galaxytools
+
+# Debug options
+main.debug=true
+main.printstacktrace=true
+
+# For more options, see: http://www.outils.genomique.biologie.ens.fr/eoulsan/conffile.html
