@@ -1,0 +1,15 @@
+<dataformat>
+  <name>normalized_rds</name>
+  <description>Store Robject aftr quality filtering .Rds</description>
+  <alias>normalized_rds</alias>
+  <prefix>normalized</prefix>
+  <onefileperanalysis>true</onefileperanalysis>
+  <samplemetadatakey>normalized_rds</samplemetadatakey>
+<extensions>
+        <extension default="true">.Rds</extension>
+  </extensions>
+
+  <toolshedgalaxy>
+        <extension>Rds</extension>
+  </toolshedgalaxy>
+</dataformat>

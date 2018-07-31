@@ -1,0 +1,15 @@
+<dataformat>
+  <name>filtered_rds</name>
+  <description>Store Robject aftr quality filtering .Rds</description>
+  <alias>filtered_rds</alias>
+  <prefix>filtered</prefix>
+  <onefileperanalysis>true</onefileperanalysis>
+  <samplemetadatakey>filtered_rds</samplemetadatakey>
+<extensions>
+        <extension default="true">.Rds</extension>
+  </extensions>
+
+  <toolshedgalaxy>
+        <extension>Rds</extension>
+  </toolshedgalaxy>
+</dataformat>
