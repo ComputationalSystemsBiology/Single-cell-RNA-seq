@@ -45,9 +45,9 @@ import static fr.ens.biologie.genomique.eoulsan.core.OutputPortsBuilder.singleOu
     /**
      * Scripts position
      */
-    private static final String modelScript = "/scripts/scdeErrors.R";
-    private static final String priorScript = "/scripts/scdePriors.R";
-    private static final String testScript = "/scripts/scdeTest.R";
+    private static final String modelScript = "/scripts/SCEscdeErrors.R";
+    private static final String priorScript = "/scripts/SCEscdePriors.R";
+    private static final String testScript = "/scripts/SCEscdeTest.R";
 
     /**
      * Module output prefixes
@@ -110,7 +110,7 @@ import static fr.ens.biologie.genomique.eoulsan.core.OutputPortsBuilder.singleOu
     private static final String DEFAULT_PLOTS = "TRUE";
 
     private static final String DEFAULT_DOCKER =
-            "genomicpariscentre/dge-scde:0.1";
+            "genomicpariscentre/dge-scde:3.7";
 
     private String docker = DEFAULT_DOCKER;
 
