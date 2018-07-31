@@ -110,7 +110,7 @@ import static fr.ens.biologie.genomique.eoulsan.core.OutputPortsBuilder.singleOu
     private static final String DEFAULT_PLOTS = "TRUE";
 
     private static final String DEFAULT_DOCKER =
-        "genomicpariscentre/dge-scde:0.1";
+            "genomicpariscentre/dge-scde:0.1";
 
     private String docker = DEFAULT_DOCKER;
 
@@ -174,10 +174,6 @@ import static fr.ens.biologie.genomique.eoulsan.core.OutputPortsBuilder.singleOu
     private int randomizations = DEFAULT_RANDOMIZATIONS;
     private String posteriors = DEFAULT_POSTERIORS;
     private String batchCol = DEFAULT_BATCH_COL;
-
-    // DataFormats
-    DataFormat CELLS_FORMAT = DataFormatRegistry.getInstance()
-        .getDataFormatFromName("filtered_cells_metadata_tsv");
 
     //
     // Getters
@@ -376,9 +372,7 @@ import static fr.ens.biologie.genomique.eoulsan.core.OutputPortsBuilder.singleOu
     // Module Methods
     //
     @Override public InputPorts getInputPorts() {
-        return new InputPortsBuilder().addPort("matrix", false, this.EXP_FORMAT)
-            .addPort("genes", false, this.GENES_FORMAT)
-            .addPort("cells", false, this.CELLS_FORMAT).create();
+        return new InputPortsBuilder().addPort("sce", false, this.SCE_FORMAT).create();
     }
 
     @Override public String getName() {
@@ -394,163 +388,157 @@ import static fr.ens.biologie.genomique.eoulsan.core.OutputPortsBuilder.singleOu
     }
 
     @Override public void configure(final StepConfigurationContext context,
-        final Set<Parameter> stepParameters) throws EoulsanException {
+                                    final Set<Parameter> stepParameters) throws EoulsanException {
 
         for (Parameter p : stepParameters) {
 
             switch (p.getName()) {
 
-            case DOCKER_IMAGE:
-                this.docker = p.getStringValue();
-                break;
+                case DOCKER_IMAGE:
+                    this.docker = p.getStringValue();
+                    break;
 
-            case CORES:
-                this.nCores = p.getIntValue();
-                break;
+                case CORES:
+                    this.nCores = p.getIntValue();
+                    break;
 
-            case MODEL_FIT_COL:
-                this.groupCol = p.getStringValue();
-                break;
+                case MODEL_FIT_COL:
+                    this.groupCol = p.getStringValue();
+                    break;
 
-            case PRIOR_LENGTH:
-                this.length = p.getIntValue();
-                break;
+                case PRIOR_LENGTH:
+                    this.length = p.getIntValue();
+                    break;
 
-            case BATCH_COL:
-                this.batchCol = p.getStringValue();
-                break;
+                case BATCH_COL:
+                    this.batchCol = p.getStringValue();
+                    break;
 
-            case RANDOMIZATIONS:
-                this.randomizations = p.getIntValue();
-                break;
+                case RANDOMIZATIONS:
+                    this.randomizations = p.getIntValue();
+                    break;
 
-            case MIN_OBS:
-                this.minObservation = p.getIntValue();
-                break;
+                case MIN_OBS:
+                    this.minObservation = p.getIntValue();
+                    break;
 
-            case MIN_GENES:
-                this.minGenes = p.getIntValue();
-                break;
+                case MIN_GENES:
+                    this.minGenes = p.getIntValue();
+                    break;
 
-            case THRESHOLD_SEG:
-                this.thresholdSeg =
-                    Boolean.toString(p.getBooleanValue()).toUpperCase();
-                break;
+                case THRESHOLD_SEG:
+                    this.thresholdSeg =
+                            Boolean.toString(p.getBooleanValue()).toUpperCase();
+                    break;
 
-            case FAILURE_THRESHOLD:
-                this.failureThreshold = p.getIntValue();
-                break;
+                case FAILURE_THRESHOLD:
+                    this.failureThreshold = p.getIntValue();
+                    break;
 
-            case MAX_PAIRS:
-                this.maxPairs = p.getIntValue();
-                break;
+                case MAX_PAIRS:
+                    this.maxPairs = p.getIntValue();
+                    break;
 
-            case MIN_PAIRS:
-                this.minPairs = p.getIntValue();
-                break;
+                case MIN_PAIRS:
+                    this.minPairs = p.getIntValue();
+                    break;
 
-            case POISSON_PARAM:
-                this.poissonParam = p.getDoubleValue();
-                break;
+                case POISSON_PARAM:
+                    this.poissonParam = p.getDoubleValue();
+                    break;
 
-            case LINEAR_FIT:
-                this.linearFit =
-                    Boolean.toString(p.getBooleanValue()).toUpperCase();
-                break;
+                case LINEAR_FIT:
+                    this.linearFit =
+                            Boolean.toString(p.getBooleanValue()).toUpperCase();
+                    break;
 
-            case MIN_THETA:
-                this.minTheta = p.getDoubleValue();
-                break;
+                case MIN_THETA:
+                    this.minTheta = p.getDoubleValue();
+                    break;
 
-            case MAX_THETA:
-                this.maxTheta = p.getDoubleValue();
-                break;
+                case MAX_THETA:
+                    this.maxTheta = p.getDoubleValue();
+                    break;
 
-            case MODEL_PLOTS:
-                this.modelPlot = Boolean.toString(p.getBooleanValue());
-                break;
+                case MODEL_PLOTS:
+                    this.modelPlot = Boolean.toString(p.getBooleanValue());
+                    break;
 
-            //case CROSSFIT_PLOTS:
-            //this.crossfitPlot = Boolean.toString(p.getBooleanValue());
-            //break;
+                //case CROSSFIT_PLOTS:
+                //this.crossfitPlot = Boolean.toString(p.getBooleanValue());
+                //break;
 
-            case PRIOR_PLOT:
-                this.priorPlot = Boolean.toString(p.getBooleanValue());
-                break;
+                case PRIOR_PLOT:
+                    this.priorPlot = Boolean.toString(p.getBooleanValue());
+                    break;
 
-            case PSEUDOCOUNT:
-                this.pseudocount = p.getIntValue();
-                break;
+                case PSEUDOCOUNT:
+                    this.pseudocount = p.getIntValue();
+                    break;
 
-            case QUANTILE:
-                this.quantile = p.getDoubleValue();
-                break;
+                case QUANTILE:
+                    this.quantile = p.getDoubleValue();
+                    break;
 
-            case MAX_VALUE:
-                this.maxValue = p.getIntValue();
-                break;
+                case MAX_VALUE:
+                    this.maxValue = p.getIntValue();
+                    break;
 
-            case POSTERIORS:
-                this.priorPlot = Boolean.toString(p.getBooleanValue());
-                break;
+                case POSTERIORS:
+                    this.priorPlot = Boolean.toString(p.getBooleanValue());
+                    break;
 
-            default:
-                Modules.unknownParameter(context, p);
+                default:
+                    Modules.unknownParameter(context, p);
             }
         }
 
         // Log Step parameters
         getLogger().info(
-            "In " + getName() + ", general options: " + "image=" + this.docker
-                + ", n.cores=" + this.nCores);
+                "In " + getName() + ", general options: " + "image=" + this.docker
+                        + ", n.cores=" + this.nCores);
 
         getLogger().info("In " + getName() + ", for model fitting: "
-            + "\n data manipulation: " + "model.group.col=" + this.groupCol
-            + ", min.observation=" + this.minObservation + ", min.genes="
-            + this.minGenes + "\n dropout estimation: "
-            + ", threshold.segmentation=" + this.thresholdSeg
-            + ", failure.threshold=" + this.failureThreshold + ", max.pairs="
-            + this.maxPairs + ", min.pairs=" + this.minPairs
-            + ", poisson.param=" + this.poissonParam
-            + "\n Negative binomial estimation: " + "linear.fit="
-            + this.linearFit + ", min.theta=" + this.minTheta + ", max.theta="
-            + this.maxTheta + "\n save.model.plot=" + this.modelPlot);
+                + "\n data manipulation: " + "model.group.col=" + this.groupCol
+                + ", min.observation=" + this.minObservation + ", min.genes="
+                + this.minGenes + "\n dropout estimation: "
+                + ", threshold.segmentation=" + this.thresholdSeg
+                + ", failure.threshold=" + this.failureThreshold + ", max.pairs="
+                + this.maxPairs + ", min.pairs=" + this.minPairs
+                + ", poisson.param=" + this.poissonParam
+                + "\n Negative binomial estimation: " + "linear.fit="
+                + this.linearFit + ", min.theta=" + this.minTheta + ", max.theta="
+                + this.maxTheta + "\n save.model.plot=" + this.modelPlot);
 
         getLogger().info(
-            "In " + getName() + ", for prior calculation: " + "prior.length="
-                + this.length + ", pseudocount=" + this.pseudocount
-                + ", quantile=" + this.quantile + ", max.value=" + this.maxValue
-                + "save.prior.plot= " + this.priorPlot);
+                "In " + getName() + ", for prior calculation: " + "prior.length="
+                        + this.length + ", pseudocount=" + this.pseudocount
+                        + ", quantile=" + this.quantile + ", max.value=" + this.maxValue
+                        + "save.prior.plot= " + this.priorPlot);
 
         getLogger().info(
-            "In " + getName() + ", for test: " + "batch.col=" + this.batchCol
-                + ", n.randomizations=" + this.randomizations
-                + ", return.posteriors" + this.posteriors);
+                "In " + getName() + ", for test: " + "batch.col=" + this.batchCol
+                        + ", n.randomizations=" + this.randomizations
+                        + ", return.posteriors" + this.posteriors);
 
         // Set executor
         this.executor = new DockerExecutorInterpreter(docker);
     }
 
     @Override public TaskResult execute(final TaskContext context,
-        final TaskStatus status) {
+                                        final TaskStatus status) {
 
         // Get Design
         final Design design = context.getWorkflow().getDesign();
 
         // Get Input files
-        final String name1 = context.getInputData(EXP_FORMAT).getName();
-        final String name2 = context.getInputData(CELLS_FORMAT).getName();
-        final String Format1 =
-            context.getInputData(EXP_FORMAT).getDataFile().toFile().getPath();
-        final String Format2 =
-            context.getInputData(CELLS_FORMAT).getDataFile().toFile().getPath();
+        final String name = context.getInputData(SCE_FORMAT).getName();
+        final String format =
+                context.getInputData(SCE_FORMAT).getDataFile().toFile().getPath();
         getLogger().info(
-            "Input 1 " + Format1 + " " + name1 + "\t" + " Input 2 " + Format2
-                + " " + name2);
-        final String InputCount =
-            context.getInputData(EXP_FORMAT).getDataFile().toFile().getPath();
-        final String InputCells =
-            context.getInputData(CELLS_FORMAT).getDataFile().toFile().getPath();
+                "Input: " + format + " " + name);
+        final String sce =
+                context.getInputData(SCE_FORMAT).getDataFile().toFile().getPath();
         //final String InputGenes = context.getInputData(GENES_FORMAT).getDataFile().toFile().getPath();
 
         // Construct Prefix
@@ -565,7 +553,7 @@ import static fr.ens.biologie.genomique.eoulsan.core.OutputPortsBuilder.singleOu
         File execDir = context.getStepOutputDirectory().toFile();
         File OutputDir = context.getOutputDirectory().toFile();
         File logDirectory =
-            ((TaskContextImpl) context).getTaskOutputDirectory().toFile();
+                ((TaskContextImpl) context).getTaskOutputDirectory().toFile();
         File tmpDir = context.getLocalTempDirectory();
         File stdoutFile = new File(logDirectory, "scde" + ".model.out");
         File stderrFile = new File(logDirectory, "scde" + ".model.err");
@@ -574,20 +562,20 @@ import static fr.ens.biologie.genomique.eoulsan.core.OutputPortsBuilder.singleOu
 
             // Calculate error models for cells see toolExecutor for galaxytools
             String commandLine =
-                buildFittingCommandLine(InputCount, InputCells, OutputModel);
+                    buildFittingCommandLine(sce, OutputModel);
             List<String> command = executor.createCommandLine(commandLine);
             executor.execute(command, execDir, tmpDir, stdoutFile, stderrFile,
-                new File[] {OutputDir});
+                    new File[] {OutputDir});
 
             // Calculate prior distribution
             stdoutFile = new File(logDirectory, "scde" + ".prior.out");
             stderrFile = new File(logDirectory, "scde" + ".prior.err");
 
-            commandLine = buildPriorCommandLine(OutputModel, InputCount,
-                OutputPrior);
+            commandLine = buildPriorCommandLine(OutputModel, sce,
+                    OutputPrior);
             command = executor.createCommandLine(commandLine);
             executor.execute(command, execDir, tmpDir, stdoutFile, stderrFile,
-                new File[] {OutputDir});
+                    new File[] {OutputDir});
 
             // Launch corresponding function : list of compa or classic (all to ref)
             for (Experiment e : experiments) {
@@ -604,11 +592,11 @@ import static fr.ens.biologie.genomique.eoulsan.core.OutputPortsBuilder.singleOu
                     columns = e.getMetadata().getModel();
                     columns = columns.replace("~", "");
                     getLogger().warning("In " + getName() + " Exp." + expName
-                        + ": columns attribute not found, used formula instead.");
+                            + ": columns attribute not found, used formula instead.");
                 }
 
                 List<String> comparisons =
-                    Arrays.asList(e.getMetadata().getComparisons().split(";"));
+                        Arrays.asList(e.getMetadata().getComparisons().split(";"));
 
                 // For each comparison
                 for (String comparison : comparisons) {
@@ -626,25 +614,24 @@ import static fr.ens.biologie.genomique.eoulsan.core.OutputPortsBuilder.singleOu
 
                     // Create output name
                     String OutputResult =
-                        StepPrefix + expName + "_" + compName + ".tsv";
+                            StepPrefix + expName + "_" + compName + ".tsv";
 
                     // Run test
                     stdoutFile =
-                        new File(logDirectory, "scde" + "." + expID + ".out");
+                            new File(logDirectory, "scde" + "." + expID + ".out");
                     stderrFile =
-                        new File(logDirectory, "scde" + "." + expID + ".err");
-                    commandLine = buildTestCommandLine(OutputModel, InputCount,
-                        InputCells, OutputPrior, columns, expID, c,
-                        OutputResult);
+                            new File(logDirectory, "scde" + "." + expID + ".err");
+                    commandLine = buildTestCommandLine(OutputModel, sce, OutputPrior, columns, expID, c,
+                            OutputResult);
                     command = executor.createCommandLine(commandLine);
                     executor.execute(command, execDir, tmpDir, stdoutFile,
-                        stderrFile, new File[] {OutputDir});
+                            stderrFile, new File[] {OutputDir});
                 }
             }
 
         } catch (Exception e) {
             return status.createTaskResult(e,
-                "Error while running SCDE : " + e.getMessage());
+                    "Error while running SCDE : " + e.getMessage());
         }
         return status.createTaskResult();
     }
@@ -652,49 +639,46 @@ import static fr.ens.biologie.genomique.eoulsan.core.OutputPortsBuilder.singleOu
     /**
      * Command builder for model fitting script
      *
-     * @param matrixFile: path to count matrix file (String)
-     * @param cellFile:   path to cells metadata file (String)
+     * @param sce: path to count Single Cell Experiment (String)
      * @param modelFile:  path to output model file (String)
      * @return command line (String)
      */
-    protected final String buildFittingCommandLine(String matrixFile,
-        String cellFile, String modelFile) {
-        return (cmd + " " + modelScript + " " + matrixFile + " " + cellFile
-            + " " + Integer.toString(getNbCores()) + " " + getGroupCol() + " "
-            + getModelPlotOption() + " " + Integer
-            .toString(getMinObservations()) + " " + Integer
-            .toString(getMinGenes()) + " " + getThresholdSegOption() + " "
-            + Integer.toString(getFailureThreshold()) + " " + Integer
-            .toString(getMaxPairs()) + " " + Integer.toString(getMinPairs())
-            + " " + Double.toString(getPoissonPar()) + " "
-            + getLinearFitOption() + " " + Double.toString(getMinTheta()) + " "
-            + Double.toString(getMaxTheta()) + " " + modelFile);
+    protected final String buildFittingCommandLine(String sce, String modelFile) {
+        return (cmd + " " + modelScript + " " + sce + " "
+                + Integer.toString(getNbCores()) + " " + getGroupCol() + " "
+                + getModelPlotOption() + " " + Integer
+                .toString(getMinObservations()) + " " + Integer
+                .toString(getMinGenes()) + " " + getThresholdSegOption() + " "
+                + Integer.toString(getFailureThreshold()) + " " + Integer
+                .toString(getMaxPairs()) + " " + Integer.toString(getMinPairs())
+                + " " + Double.toString(getPoissonPar()) + " "
+                + getLinearFitOption() + " " + Double.toString(getMinTheta()) + " "
+                + Double.toString(getMaxTheta()) + " " + modelFile);
     }
 
     /**
      * Command builder for prior script
      *
      * @param modelFile:  path to model file (String)
-     * @param matrixFile: path to count matrix file (String)
+     * @param sce: path to count Single Cell Experiment (String)
      * @param priorFile:  path to output prior file (String)
      * @return command line (String)
      */
     protected final String buildPriorCommandLine(String modelFile,
-        String matrixFile, String priorFile) {
-        return (cmd + " " + priorScript + " " + modelFile + " " + matrixFile
-            + " " + Integer.toString(getPriorLength()) + " "
-            + getPriorPlotOption() + " " + Integer.toString(getPseudocount())
-            + " " + (getQuantile() == 0 ? "NULL" :
-            Double.toString(getQuantile())) + " " + (getMaxValue() != null ?
-            getMaxValue().toString() : "NULL") + " " + priorFile);
+                                                 String sce, String priorFile) {
+        return (cmd + " " + priorScript + " " + modelFile + " " + sce
+                + " " + Integer.toString(getPriorLength()) + " "
+                + getPriorPlotOption() + " " + Integer.toString(getPseudocount())
+                + " " + (getQuantile() == 0 ? "NULL" :
+                Double.toString(getQuantile())) + " " + (getMaxValue() != null ?
+                getMaxValue().toString() : "NULL") + " " + priorFile);
     }
 
     /**
      * Command builder for test script
      *
      * @param modelFile:  path to model file (String)
-     * @param matrixFile: path to count matrix file (String)
-     * @param cellFile:   path to cells metadata file (String)
+     * @param sce: path to count Single Cell Experiment (String)
      * @param priorFile:  path to prior file (String)
      * @param columns:    columns for comparison (String)
      * @param expID:      ID of experience (String)
@@ -703,12 +687,11 @@ import static fr.ens.biologie.genomique.eoulsan.core.OutputPortsBuilder.singleOu
      * @return command line (String)
      */
     protected final String buildTestCommandLine(String modelFile,
-        String matrixFile, String cellFile, String priorFile, String columns,
-        String expID, String comparison, String outputFile) {
-        return (cmd + " " + testScript + " " + modelFile + " " + matrixFile
-            + " " + cellFile + " " + priorFile + " " + columns + " " + expID
-            + " " + comparison + " " + Integer.toString(this.getNbCores()) + " "
-            + Integer.toString(this.getRandomizations()) + " " + getBatchCol()
-            + " " + this.getPosteriorsOption() + " " + outputFile);
+                                                String sce, String priorFile, String columns,
+                                                String expID, String comparison, String outputFile) {
+        return (cmd + " " + testScript + " " + modelFile + " " + sce + " " + priorFile + " " + columns + " " + expID
+                + " " + comparison + " " + Integer.toString(this.getNbCores()) + " "
+                + Integer.toString(this.getRandomizations()) + " " + getBatchCol()
+                + " " + this.getPosteriorsOption() + " " + outputFile);
     }
 }

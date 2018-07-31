@@ -45,14 +45,9 @@ public abstract class AbstractSCDifferentialExpression extends AbstractModule {
     protected static final DataFormat RESULT_FORMAT =
         DataFormatRegistry.getInstance().getDataFormatFromName("diffexp_result_tsv");
 
-    protected static final DataFormat EXP_FORMAT =
-        DataFormatRegistry.getInstance().getDataFormatFromName("filtered_expression_matrix_tsv");
 
-    protected static final DataFormat GENES_FORMAT =
-        DataFormatRegistry.getInstance().getDataFormatFromName("genes_metadata_tsv");
-
-    protected DataFormat CELLS_FORMAT =
-        DataFormatRegistry.getInstance().getDataFormatFromName("normalized_cells_metadata_tsv");
+    protected DataFormat SCE_FORMAT =
+        DataFormatRegistry.getInstance().getDataFormatFromName("normalized_rds");
 
     //
     // Module Methods
