@@ -1,0 +1,20 @@
+<tool id="SCE-lineage-monocle" name="SCE-lineage-monocle" >
+	<description> Perform dimensionnality reduction and pseudo-time ordering on cells</description>
+	<command interpreter="docker"  dockerimage="genomicpariscentre/lineage-monocle:3.7">Rscript scripts/SCEmonocle.R $sce $exp_family $detection_threshold $bypass $select_genes $mean_threshold $dispersion_fold_threshold $max_dim $reduction_method $norm_method $reverse $color_by </command>
+	<inputs>
+		<param format="normalized_rds" name="sce" type="data" label="Source file" />
+		
+		<param name="exp_family" type="text" value="negbinomial" label="Expression model family, should be one of : negbinomial, negbinomial_size"/>
+		<param name="detection_threshold" type="float" value="0.1" label="Gene detection parameter"/>
+		<param name="bypass" type="text" value="bypass" label="Use monocle native (native) normalization or bypass (bypass) using eoulsan normalization"/>
+		<param name="select_genes" type="text" value="False" label="Weither to reduce gene set or not for dimensionnality reduction"/>
+		<param name="mean_threshold" type="float" value="0.5" label="Minimum mean expression value to keep a gene"/>
+		<param name="dispersion_fold_threshold" type="float" value="1" label="Minimum fold of dispersion to keep a gene"/>
+		<param name="max_dim" type="integer" value="2" label="Maximum number of dimension to keep after dimensionnality reduction"/>
+		<param name="reduction_method" type="text" value="DDRTree" label="Dimensionnality reduction method to use, should be one of : DDRTree  or ICA"/>
+		<param name="norm_method" type="text" value="vstExprs" label="Variance stabilizing method to use, should be one of : vstExprs, log, or none"/>
+		<param name="reverse" type="text" value="False" label="Weither to represent cells in inverted order or not"/>
+		<param name="color_by" type="text" value="State" label="Column to use to color cells on plot"/>
+	</inputs>
+	<outputs></outputs>
+</tool>

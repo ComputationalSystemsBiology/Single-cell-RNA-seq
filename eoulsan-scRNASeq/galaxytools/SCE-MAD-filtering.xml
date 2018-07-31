@@ -1,0 +1,20 @@
+<tool id="saturation" name="SCE-MAD-filtering" >
+	<description> Perform quality checking and filtering on raw count data from single cell RNA-Seq experiment using MAD value</description>
+	<command interpreter="docker"  dockerimage="genomicpariscentre/scqualitychecking:3.7">Rscript /scripts/SCEqualityCheckingMAD.R $sce $detection_threshold $expression_option $n_Mad $direction $groups $prop_mt $prop_sp $nb_filters $completeoutput $filteredoutput</command>
+	<inputs>
+		<param format="robject_rds" name="sce" type="data" label="Source file" />
+		
+		<param name="detection_threshold" type="integer" value="10" label="Gene detection threshold"/>
+		<param name="expression_option" type="text" value="Endogenous" label="Type of detected genes"/>
+		<param name="n_Mad" type="integer" value="5" label="Maximum number of median absolute deviation"/>
+		<param name="direction" type="text" value="both" label="filtering direction : both, upper or lower"/>
+		<param name="groups" type="text" value="Null" label="Column for grouping cell"/>
+		<param name="prop_mt" type="float" value="0.1" max="1" label="Maximum proportion of mitochondrially aligned reads"/>
+		<param name="prop_sp" type="float" value="0.5" max="1" label="Maximum proportion of exogenously aligned reads"/>
+		<param name="nb_filters" type="integer" value="1" min="1" max="4" label="Parameter for number of failed filters triggering removal"/>
+	</inputs>
+	<outputs>
+		<data format="robject_rds" name="completeoutput" />
+		<data format="filtered_rds" name="filteredoutput" />
+	</outputs>
+</tool>

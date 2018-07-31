@@ -1,0 +1,22 @@
+<tool id="saturation" name="SCE-saturation-filtering" >
+	<description> Perform quality checking and filtering on raw count data from single cell RNA-Seq experiment using saturation model</description>
+	<command interpreter="docker"  dockerimage="genomicpariscentre/scqualitychecking:3.7">Rscript /scripts/SCEqualityCheckingSaturation.R $sce $detection_threshold $expression_option $saturation_threshold $fit_threshold $rounding $n_cores $prop_mt $prop_sp $nb_filters $completeoutput $filteredoutput</command>
+	<inputs>
+		<param format="robject_rds" name="sce" type="data" label="Source file" />
+		
+		<param name="detection_threshold" type="integer" value="10" label="Gene detection threshold"/>
+		<param name="expression_option" type="text" value="Endogenous" label="Type of detected genes"/>
+		<param name="saturation_threshold" type="float" max="1" value="0.7" label="Minimum saturation"/>
+		<param name="fit_threshold" type="float" value="0.97" label="Minimum value for goodness of fit"/>
+		<param name="rounding" type="integer" value="10000" min="100" label="Magnitude of number of round rounding for saturation calculation"/>
+		<param name="n_cores" type="integer" value="2" min="1" label="Number of cores for execution"/>
+		<param name="prop_mt" type="float" value="0.1" max="1" label="Maximum proportion of mitochondrially aligned reads"/>
+		<param name="prop_sp" type="float" value="0.5" max="1" label="Maximum proportion of exogenously aligned reads"/>
+		<param name="nb_filters" type="integer" value="1" min="1" max="3" label="Parameter for number of failed filters triggering removal"/>
+	</inputs>
+	<outputs>
+		<data format="robject_rds" name="completeoutput" />
+		<data format="filtered_rds" name="filteredoutput" />
+		
+	</outputs>
+</tool>

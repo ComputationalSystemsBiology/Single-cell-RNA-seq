@@ -1,16 +1,14 @@
-<tool id="scpoolednormalization" name="CPM" >
+<tool id="scpoolednormalization" name="SCE-CPM" >
 	<description> Perform library size estimation for all cells using CPM</description>
-	<command interpreter="docker"  dockerimage="genomicpariscentre/sumnormalization:0.1">Rscript /scripts/sumNormalization.R $matrix $cells $genes $mode $color_by CPM $length_correction  $cellsoutput </command>
+	<command interpreter="docker"  dockerimage="genomicpariscentre/sumnormalization:3.7">Rscript /scripts/SCEsumNormalization.R $sce $genes $mode $color_by CPM $length_correction  $normalizedSCE </command>
 	<inputs>
-		<param format="filtered_expression_matrix_tsv" name="matrix" type="data" label="Source file" />
-		<param format="filtered_cells_metadata_tsv" name="cells" type="data" label="Source file" />
-		<param format="genes_metadata_tsv" name="genes" type="data" label="Source file" />
+		<param format="filtered_rds" name="sce" type="data" label="Source file" />
 		
 		<param name="mode" type="text" value="Endogenous" label="Consider endogenous genes or nuclear genes"/>
 		<param name="color_by" type="text" value="Condition" label="Name of column to use to color cells on plot"/>
-		<param name="length_correction" type="text" value="False" label="Weither to correct for feature length or not before plotting"/>
+		
 	</inputs>
 	<outputs>
-		<data format="normalized_cells_metadata_tsv" name="cellsoutput" />
+		<data format="normalized_rds" name="normalizedSCE" />
 	</outputs>
 </tool>
